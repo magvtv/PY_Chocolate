@@ -433,15 +433,15 @@ import string
 #Base class for MovieGoer
 class MovieGoer:
     def __init__(self, name, email, number_of_seats, film, show_time, snacks):
-        # self.id = self.generate_unique_id()
+        self.id = self.generate_unique_id()
         self.name = name
         self.email = email
         self.number_of_seats = number_of_seats
         self.film = film
         self.show_time = show_time
         self.snacks = snacks
-    # def generate_unique_id():
-        # return " ".join(random.choice(string.ascii_letters + string.digits, k = 10))
+    def generate_unique_id(self):
+        return "".join(random.choices(string.ascii_letters + string.digits,k=10))
     
 #Subclass for booking tickets. Instead of concession stand = snack bar
 class TicketBooking(MovieGoer):
@@ -475,8 +475,7 @@ class SnackBar:
 
 #Abstraction and polymorphism - all details in a generic fashion. sort of like a receipt
 def PrintDetails(binger):
-    # print(f"ID: {binger.id}")
-    # print("\n")
+    print(f"ID: {binger.id}")
     print(f"Name: {binger.name}")
     print(f"Email: {binger.email}")
     print(f"Film: {binger.film}")
