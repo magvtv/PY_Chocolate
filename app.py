@@ -441,7 +441,8 @@ class MovieGoer:
         self.show_time = show_time
         self.snacks = snacks
     def generate_unique_id(self):
-        return "".join(random.choices(string.ascii_letters + string.digits,k=10))
+        characters = string.ascii_uppercase + string.digits
+        return "".join(random.choices(characters, k = 10))
     
 #Subclass for booking tickets. Instead of concession stand = snack bar
 class TicketBooking(MovieGoer):
