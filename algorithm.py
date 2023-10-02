@@ -1,0 +1,1 @@
+# wanna learn on algorithms with python. just one would do.
