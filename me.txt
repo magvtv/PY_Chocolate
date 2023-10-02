@@ -1,0 +1,77 @@
+    Literals. There are boolean literals, special literal (None) and collection of literals. Tuples, lists, set and dictornary are in the collection. 
+    Tuple and strings are immutable while lists in Python are mutable.
+    PYTHON LIST:
+    Something about lists is that you can add another list within a list. Something else called negative index that is say a word like 'Amsterdam' has 9 letters, the (-1) index is the last letter in the word which happens to me the letter 'm.' The (-7) index is the letter 's. There is something known as list slicing and this is when you want a certain sequence of characters from the list to be outputted. 
+    Understanding that elements can be changed in lists. Append only adds one item to the list while extends can add several items on the list. Deleting things from the list using the del keyword. 
+
+    PYTHON TUPLES: 
+        A group of items inside a parantheses. Any type of can be put in the tuple. 
+        Tuple packing is creating a tupel without paranthesis. Tuple unpacking is the creating of many items into a tuple. 
+        Cannot have one item in a tuple. It will read the type of that item only and not the tuple. Having a trailing comma will make the difference. Also has negative indexing 
+
+
+    Implicit type conversion and explicit type conversion. This is changing from one data type to another. Explicit type conversion is also called type casting. Converting of data types to another through predefined functions by the user.
+    Module is file containing Python definitions and statements. End with the dot py kinda thing. 
+    Still have not gotten the meaning of bitwise operators. Used for performing bitwise operators on integers.They are converted to binary and then the operations are performed bit by bit.
+    Assignment, Special operators.
+    Then there is membership operators (in & in not) - check if a variable is in a sequence. By seqeunce we mean string, tuple, set and dictonary, identity operators (is & is not) - check if two variables are located in the same place in memory,  
+
+    On Python Namespace, understand that everything is an object. Name is just a manner of accessing the object in the language.Even functions are objects. So a namespace is a collection of names - mapping of every name you have defined to corresponding. Each module creates its own namespace - global. Function has a local namespace.
+
+    Python variable scope is the portion of a program which a namespace can be accessed without any prefix. The keyword "global" makes every variable of have the same value.
+
+    Pass statement in python is a null statement. Can be said to be the same as a comment but the differecnce lies in the Python interpreter - comments are ignored will pass is not ignored.
+
+    On Python functions, the keyword def shows the header for a function. Parameters and arguments are not the same thing. Parameters are the placeholders for the arguments. Arguments are the actual values. Mosh taught me so. 
+    Docstring means documentation string. Explains what a function does. Good practice to have a docstring below the function header.
+    Different type of functions include; built-in (comes with the language itself), user-defined. 
+    I am learning about arguments. When a function is called with some values, that is what is known as arguments. Something about positional arguments, if they are put after keyword arguments they bring out an error. Arbitrary arguments -> used when you are not sure of the values that shall be used in the funciton in advance. Thus, you set aside a variable with an asterix to handle this kind of situation. 
+    Recursive functions are good at the same time not good. Sequence generation can be hard to debug and take up a lot of memory space.
+    Anonymous functions are also known as lambda functions. They are defined without a name. There is map and filter functions. Filter iterates and evaluates items in a list and returns those that comply to the statements in the functions (True). Map returns a new list of items that have been returned by the function itself. 
+    Now, I am understanding the local, nonlocal and global variables. Having understood the lengths of the scope of both global and local, I have learnt there is a keyword called nonlocal. It means that the variable is neither global or local. 
+    Python modules is a file containing other python statements and definitions. Used for breaking down large programs, into small organized and manageable sizes. How to import moduels? We use the keyword import to do this. Renaming of a module can take place in pythoon using the keyword 'as.' DIR is used to find out names that have been defined in a module. 
+    Python packages. Init py is a must for a python directory to be considered a package. A group of well organized modules form a sub-package; which form a package. Use of the dot operator to access different modules in a python directory. A form of hierearchy is used when you are to access a given module in a different python file. For example we have something like Yibe. We have the  sub-packages which are (__init__.py), (Client), (Barber), (Salonist) etc. Then choosing a sub-package like (Client), it is a must that we have another (__init__.py) in the sub-package (Client). We can have modules such as 
+    Why the keyword yield? It used to indicate to the interpreter that we are defining a generato and not a traditional function. 
+
+Python Data Types:
+    In Numbers, be careful when you are adding decimal numbers. It might give out another answer which is not close to the intended. 
+
+
+Exceptional Handling: 
+    Usually for unexpected errors during program execution. Maybe be as a result of a logical error or an unanticipated situation. Raising an exception and catching the raised error is how handling is done.
+    Common ones are the "TypeError", "KeyboardInterrupt", "IO and EOF" for file errors. The base class for almost all error types is "Exception"
+
+PYTHON OOP:
+    Design goals are usually robustness, adaptability and reusability. 
+    Design principles are modularity (orgranized principle in which different components are separated into functional units),  abstraction (distilling compleicated system down to fundamental components) and encapsulation (intenal details of the implementation of a system remain hidden to the users, who comfortably interact with the interface). 
+    A design pattern is simply a solution to a particulat software design problem. Acts like a general template for a solution that is applicable in different types of problems. Talk about design patterns that is object oriented programming they include divide and conquer, prune and search, amortization, greey method, dynamic programming, brute force, recursion
+    Also, understading that software development process is in the design, implementation and the testing + debugging.
+    
+    Behaviours are the methods. Independent items are the variables. Resposibility are the code functions that have been implemented. 
+    Classes pick up the camelCase notation. Functions pick up the lowercase-underscores notation. Variables are usually lowercase. Identifiers are always uppercase. 
+
+    OOP is more of boiling things down to first principles. It teaches you how to think in that fashion. Same as to what Elon Musk talks about. Thinking for yourself trains your mind to think without any templating (as in analogy). The basis of an assumption at which things cannot be deduced any further - purely indubitable truths. This is the manner oof thinking that deives innovation. Rather than optimizing form, think of optimizing the function. 
+
+
+From the book 'Python 3 OOP' by 'Dusty Phillips'
+    Encapsulation is also known as information hiding. 
+    Abstraction is the masking of the behaviour on how an output is achieved from an input. Separates the public from the private interface. 
+    Composition is bringing of several objects and narrowing it down to one new entity. Good when one object is part of another. 
+    Object diagram is also called an instance diagram => describe a system at a specific space of time. 
+    Agregate objects exist independently. Aggregation can be exampled with a chess set on a chess board. 
+    Inheritance has two sorts of relationships - 'isa' and 'hasa.' Multiple inheritance allows a sub-class to inherit functionalities from different paraent classes. 
+    Polymorphism is 
+    Understanding what an abstract sub-class means: adding a method to a sub-class, but not specfiying the implemention part it there - it would be done elsewhere.  
+
+It has been a while since I did something on coding. 
+I have been off the hook - simply because of my mindset shift. 
+Viewing it as some kind of work instead of play.
+So I want to keep it consistent. I know i told myself start of September, well lookie here! 
+Another procrastinating boy. Alright, enough of self reflection, let me get down to work.
+
+I have come to realize something, building stuff is very much fun. Thanks to AI right now,
+you do not have to debug for hours on out. So I will make it a habit now henceforth. Of 
+course not to make me dumb, but help out in what I am stuck on.
+
+
+    

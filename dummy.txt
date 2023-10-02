@@ -1,0 +1,53 @@
+Low level graph plotting library 
+
+
+List in python is an array in javascript
+
+
+CLASS ASSIGNMENT
+- Build violin plots for the data set of lifeExp (life expectancy),population and GDP for the year 2007 (use seaborn for guidance)
+- Then use streamlit to present the data in form of a  data app for the above data sets
+- Present assignment
+
+
+able to change values in list using the index properties in list
+using the insert method with the index to change and the value to be input
+
+
+in classes the init function assigns values to object properties
+str controls what should be returned as a string 
+object can also have methods within them
+
+self in python is the same as this in javascript, a reference to the current class instance, used as access variable belonging to class
+
+#AXIS
+
+- Already set scale and limits
+- Generate ticks and ticklabes
+- Location of ticks determined by locator object and ticklabel string
+
+
+If you want a thing bad enough, 
+To go out and fight for it,
+Work day and night for it,
+Give up your time and your peace and your sleep for it,
+
+If only the desire for it,
+Makes you mad enough, 
+Never to tire for it,
+Makes you hold all other things tawdry and cheap for it,
+
+If life seems all empy and useless without it, 
+And all that you scheme and you dream is about it, 
+If gladly you will sweat and fret and plan for it,
+Lose all your terror of opposition or man for it, 
+
+If you simply go after that which you want, 
+With all your capacity, strength and sagacity,
+Faith, hope, confidence and stern pertinacity,
+If neither cold, poverty, famish nor gaunt,
+Nor sickness nor pain of body or brain, 
+Can turn you away from it,
+
+IF DOGGED AND GRIM YOU BESIEGE AND BESET IT, 
+YOU WILL GET IT!
