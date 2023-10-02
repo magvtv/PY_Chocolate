@@ -493,7 +493,7 @@ if __name__ == "__main__":
         "James Njenga",
         "njengajames@yahoo.com",
         3,
-        "The Nun II",
+        "Grand Turismo",
         "1530h, 1730h",
         ["Pringles XL", "Pringles XL", "Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
         "Florence Wanja",
