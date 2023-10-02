@@ -483,7 +483,7 @@ def PrintDetails(binger):
     print(f"Show Time: {binger.show_time}")
     print(f"Seats: {binger.number_of_seats}")
     print(f"Snacks: {', '.join(binger.snacks)}")
-    print(f"Served By: {binger.served_by} {binger.theatre_job_id}")
+    print(f"Served By: {binger.served_by}   {binger.theatre_job_id}")
     
 
 #My usage example
@@ -491,13 +491,13 @@ if __name__ == "__main__":
     snackbar = SnackBar()
     binger1 = TicketBooking(
         "James Njenga",
-        "kinyenjezzz@gmail.com",
-        2,
-        "The Grand Turismo",
-        "1400h-1550h",
-        ["Skittles Regular", "500ml Fanta Passion", "500ml Sprite"],
-        "Jane Mwikali",
-        "KMC123"
+        "njengajames@yahoo.com",
+        3,
+        "The Nun II",
+        "1530h, 1730h",
+        ["Pringles XL", "Pringles XL", "Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
+        "Florence Wanja",
+        "KMC293"
     )
     total_cost1 = binger1.calculate_total_cost(snackbar)
     print("Receipt Confirmed: ")
