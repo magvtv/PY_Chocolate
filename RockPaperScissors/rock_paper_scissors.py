@@ -23,10 +23,10 @@ def playGame():
     CPU_choice = random.choice(list(game_options.values()))
 
     if CPU_choice == user_choice:
-        return f"A draw! \nI chose {CPU_choice.lower()} too!"
+        return f"A draw! \nI chose {CPU_choice} too!"
     elif victory(user_choice, CPU_choice):
-        return f"You Won! \nI chose {CPU_choice.lower()}."
+        return f"You Won! \nI chose {CPU_choice}."
     else:
-        return f"You Lost! \nI chose {CPU_choice.lower()}."
+        return f"You Lost! \nI chose {CPU_choice}."
 
 print(playGame())
