@@ -1,21 +1,29 @@
 import tkinter as tk
+from tkinter import messagebox
 
 def push_candy():
     global current_candy_index
-    candy = candy_entry.get()
-    candy_stack.append(candy.capitalize())
-    action_stack.append(('push', candy))
-    current_candy_index = len(candy_stack)
-    update_display()
+    candy = candy_entry.get().strip()
+    
+    if not candy:
+        messagebox.showinfo('Insert Candy!',  'Put some candy into the stack.')
+    else:
+        candy_stack.append(candy.capitalize())
+        action_stack.append(('push', candy))
+        current_candy_index = len(candy_stack)
+        candy_entry.delete(0, 'end')
+        update_display()
 
 def pop_candy():
     global current_candy_index
-    if current_candy_index > 0:
+    try:
         popped_candy = candy_stack.pop()
         action_stack.append(('pop', popped_candy))
-        candy_stack.pop()
-        current_candy_index = len(candy_stack)
+        current_candy_index -= 1
         update_display()
+    except IndexError:
+        messagebox.showinfo('No Candy Left!', 'No available candy in stack.')
+
 
 def undo_action():
     global current_candy_index
@@ -36,10 +44,7 @@ root.title("Candy Dispenser")
 candy_stack = [
     "Snickers", 
     "Baby Ruth", 
-    "Kitkat", 
-    "M&Ms", 
-    "Hershey",
-    "Twix"
+    "Kitkat"
 ]
 
 current_candy_index = len(candy_stack)
