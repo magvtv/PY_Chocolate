@@ -42,9 +42,18 @@ root.title("Candy Dispenser")
 
 # List of candy items
 candy_stack = [
-    "Snickers", 
-    "Baby Ruth", 
-    "Kitkat"
+    "Reese Whipps", 
+    "Perfetti Van Malle Chupa Chups", 
+    "Swizzels Matlow Refreshers",
+    "Toblerone",
+    "Ferrero Rocher",
+    "Hershey's Mounds",
+    "Lindt Lindor",
+    "Mars Snickers",
+    "Wrigglies Skittles",
+    "Nestle KitKat",
+    "Terry\'s Chocolate Orange",
+    "Wawel Royal"
 ]
 
 current_candy_index = len(candy_stack)
