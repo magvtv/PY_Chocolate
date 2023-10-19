@@ -29,7 +29,7 @@ class TicketBooking(MovieGoer):
         
     def calculate_total_cost(self, snack_bar):
         snack_cost = sum(snack_bar.fetch_snack_price(snack) for snack in self.snacks)
-        ticket_cost = self.number_of_seats * 800        #Assuming KES 800 per seat
+        ticket_cost = self.number_of_seats * 850        #Assuming KES 850 per seat
         return ticket_cost + snack_cost
     
     
@@ -37,22 +37,22 @@ class TicketBooking(MovieGoer):
 class SnackBar:
     def __init__(self):
         self.menu = {
-            "Pringles M": 100,
-            "Pringled XL": 250,
-            "Urban Bites XL": 300,
-            "500ml Sprite": 120,
-            "500ml Fanta Passion": 120,
-            "Cadbury Lunch Bar": 200,
-            "Popcorns": 80,
-            "Parle G Biscuits": 120,
-            "Skittles": 150
+            'Pringles M': 100,
+            'Pringled XL': 250,
+            'Urban Bites XL': 300,
+            '500ml Sprite': 120,
+            '500ml Fanta Passion': 120,
+            'Cadbury Lunch Bar': 200,
+            'Popcorns': 80,
+            'Parle G Biscuits': 120,
+            'Skittles': 150
         }
     def fetch_snack_price(self, snack):
         return self.menu.get(snack, 0)
 
 #Abstraction and polymorphism - all details in a generic fashion. sort of like a receipt
 def PrintDetails(binger):
-    print(f"ID: {binger.id}")
+    print(f"Payment ID: {binger.id}")
     print(f"Name: {binger.name}")
     print(f"Email: {binger.email}")
     print(f"Film: {binger.film}")
@@ -66,17 +66,17 @@ def PrintDetails(binger):
 if __name__ == "__main__":
     snackbar = SnackBar()
     binger1 = TicketBooking(
-        "James Njenga",
-        "njengajames@yahoo.com",
-        3,
-        "Grand Turismo",
-        "1530h, 1730h",
-        ["Pringles XL", "Pringles XL", "Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
-        "Florence Wanja",
-        "KMC293"
+        "Margaret Onyancha",
+        "maggieonyancha99@gmail.com",
+        2,
+        "Barbie",
+        "2000h-2200h",
+        ["Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
+        "Nick Karanja",
+        "KMC344"
     )
     total_cost1 = binger1.calculate_total_cost(snackbar)
-    print("Receipt Confirmed: ")
+    print("Film Ticket Confirmed: ")
     PrintDetails(binger1)
     print(f"Amount: KES {total_cost1}\n")
     
