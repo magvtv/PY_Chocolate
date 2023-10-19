@@ -4,21 +4,30 @@ def push_candy():
     global current_candy_index
     candy = candy_entry.get()
     candy_stack.append(candy)
+    action_stack.append(('push', candy))
     current_candy_index = len(candy_stack)
     update_display()
 
 def pop_candy():
     global current_candy_index
     if current_candy_index > 0:
+        popped_candy = candy_stack.pop()
+        action_stack.append(('pop', popped_candy))
         candy_stack.pop()
         current_candy_index = len(candy_stack)
         update_display()
 
 def undo_action():
     global current_candy_index
-    if current_candy_index > 0:
-        current_candy_index -= 1
-        update_display()
+    if action_stack:
+        action, item = action_stack.pop()
+        if action == 'push':
+            candy_stack.pop()
+            current_candy_index = len(candy_stack)
+        elif action == 'pop':
+            candy_stack.append(item)
+            current_candy_index = len(candy_stack)
+    update_display()
 
 def update_display():
     candy_display.config(text='\n'.join(f'{x + 1}.{candy}' for x, candy in enumerate(candy_stack) ))
@@ -38,6 +47,7 @@ candy_stack = [
 
 current_candy_index = len(candy_stack)
 # current_candy_index = 0
+action_stack = []
 
 # Create entry field for candy input, buttons and placing their widgets
 candy_entry = tk.Entry(root)
