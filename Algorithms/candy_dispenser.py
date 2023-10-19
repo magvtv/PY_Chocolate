@@ -1,49 +1,57 @@
 import tkinter as tk
-    
-class CandyDispenserApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title = ('Candy Dispenser')
-        
-        self.candy_stack = ['Amanda','Bulgaria','Chelsea','Daisy','Elodie','Florence','Georgia','Hazel','Jasmine']
-        
-        self.current_candy_index = 0
-        
-        self.candy_entry = tk.Entry(root)
-        self.candy_entry.pack()
-        self.push_button = tk.Button(root, text='PUSH', command=self.push_candy)
-        self.push_button.pack()
-        self.pop_button = tk.Button(root, text='POP', command=self.pop_candy)
-        self.pop_button.pack()
-        self.undo_button = tk.Button(root, text='UNDO', command=self.undo_action)
-        self.undo_button.pack()
-        
-        
-        
-    def candy_display(self):
-        self.candy_entry.delete(0, 'end')
-        self.candy_entry.insert(0, ' '.join(self.candy_stack))
-    def push_candy(self):
-        candy = self.candy_entry.get()
-        self.candy_stack.insert(self.current_candy_index, candy)
-        self.current_candy_index += 1
-        self.candy_display()
-        
-    def pop_candy(self):
-        if (self.current_candy_index > 0):
-            self.candy_stack.pop(self.current_candy_index - 1)
-            self.current_candy_index -= 1
-            self.candy_display()
-            
-    def undo_action(self):
-        if (self.current_candy_index > 0):
-            self.current_candy_index -= 1
-            self.candy_display()
-    
-        
-if __name__ == '__main__':
-    root = tk.Tk()
-    app = CandyDispenserApp(root)
-    root.mainloop()
-    
-    
+
+def push_candy():
+    global current_candy_index
+    candy = candy_entry.get()
+    candy_stack.append(candy)
+    current_candy_index = len(candy_stack)
+    update_display()
+
+def pop_candy():
+    global current_candy_index
+    if current_candy_index > 0:
+        candy_stack.pop()
+        current_candy_index = len(candy_stack)
+        update_display()
+
+def undo_action():
+    global current_candy_index
+    if current_candy_index > 0:
+        current_candy_index -= 1
+        update_display()
+
+def update_display():
+    candy_display.config(text='\n'.join(f'{x + 1}.{candy}' for x, candy in enumerate(candy_stack) ))
+
+root = tk.Tk()
+root.title("Candy Dispenser")
+
+# List of candy items
+candy_stack = [
+    "Snickers", 
+    "Baby Ruth", 
+    "Kitkat", 
+    "M&Ms", 
+    "Hershey",
+    "Twix"
+]
+
+current_candy_index = len(candy_stack)
+# current_candy_index = 0
+
+# Create entry field for candy input, buttons and placing their widgets
+candy_entry = tk.Entry(root)
+candy_entry.pack()
+push_button = tk.Button(root, text='PUSH', command=push_candy)
+push_button.pack()
+pop_button = tk.Button(root, text='POP', command=pop_candy)
+pop_button.pack()
+undo_button = tk.Button(root, text='UNDO', command=undo_action)
+undo_button.pack()
+
+# Create a label to display the candy
+candy_display = tk.Label(root, text='\n'.join(f'{x + 1}.{candy}' for x, candy in enumerate(candy_stack)), font=("Handlee", 14))
+candy_display.pack()
+# Place widgets in the GUI
+
+root.mainloop()
