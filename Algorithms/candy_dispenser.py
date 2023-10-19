@@ -3,7 +3,7 @@ import tkinter as tk
 def push_candy():
     global current_candy_index
     candy = candy_entry.get()
-    candy_stack.append(candy)
+    candy_stack.append(candy.capitalize())
     action_stack.append(('push', candy))
     current_candy_index = len(candy_stack)
     update_display()
@@ -21,16 +21,13 @@ def undo_action():
     global current_candy_index
     if action_stack:
         action, item = action_stack.pop()
-        if action == 'push':
-            candy_stack.pop()
-            current_candy_index = len(candy_stack)
-        elif action == 'pop':
+        if action == 'pop':
             candy_stack.append(item)
             current_candy_index = len(candy_stack)
     update_display()
 
 def update_display():
-    candy_display.config(text='\n'.join(f'{x + 1}.{candy}' for x, candy in enumerate(candy_stack) ))
+    candy_display.config(text='\n'.join(f'{x + 1}.{candy.capitalize()}' for x, candy in enumerate(candy_stack) ))
 
 root = tk.Tk()
 root.title("Candy Dispenser")
