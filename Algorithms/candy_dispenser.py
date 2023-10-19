@@ -44,13 +44,13 @@ class CandyDispenserApp:
         self.candy_entry = tk.Entry(root)
         self.candy_entry.pack()
         
-        self.push.button = tk.Button(root, text='PUSH', command=self.push_candy)
+        self.push_button = tk.Button(root, text='PUSH', command=self.push_candy)
         self.push_button.pack()
         
-        self.pop.button = tk.Button(root, text='POP', command=self.pop_candy)
+        self.pop_button = tk.Button(root, text='POP', command=self.pop_candy)
         self.pop_button.pack()
         
-        self.undo.button = tk.Button(root, text='UNDO', command=self.undo_action)
+        self.undo_button = tk.Button(root, text='UNDO', command=self.undo_action)
         self.undo_button.pack()
     
     def push_candy(self):
