@@ -17,14 +17,20 @@ class HospitalQueue:
         start_datetime = datetime.strptime(start_time, fmt)
         end_datetime = datetime.strptime(end_time, fmt)
         
-        # duration in minutes first then bigger into hours and minutes
+        # duration in minutes first then conditional to control bigger duration into hours and minutes
         duration_mins = ((end_datetime - start_datetime).total_seconds()) / 60
-        duration_hr = duration_mins // 60
-        duration_rem_mins = duration_mins % 60
+        
+        if duration_mins >= 60:
+            duration_hr = duration_mins // 60
+            duration_rem_mins = duration_mins % 60
+            duration_str = f'{int(duration_hr)}h {int(duration_rem_mins)}m'
+        else:
+            duration_str = f'{int(duration_mins)}m'
+            
         
         
         
-        self.queue.append((name, start_time, end_time, duration_hr, duration_rem_mins))
+        self.queue.append((name, start_time, end_time, duration_str))
         self.queue.sort()
         
     def remove_next_patient(self):
@@ -44,8 +50,8 @@ queue = HospitalQueue()
 
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
-    for name, start_time, end_time, duration_hr, duration_rem_mins in queue.queue:
-        patient_listbox.insert(tk.END, f'{name.capitalize()}:  {int(duration_hr)}h {int(duration_rem_mins)}m - [{start_time} - {end_time}]')
+    for name, start_time, end_time, duration_str in queue.queue:
+        patient_listbox.insert(tk.END, f'{name.capitalize()}: {duration_str} - [{start_time} - {end_time}]')
 
 def add_patient():
     name = name_entry.get()
