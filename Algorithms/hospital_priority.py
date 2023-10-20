@@ -12,12 +12,21 @@ class HospitalQueue:
         self.queue = []
         
     def add_patient(self, name, start_time, end_time):
-        self.queue.append((name, appointment_time))
+        # calculate the duration of the appointment
+        fmt = '%H%Mh'
+        start_datetime = datetime.strptime(start_time, fmt)
+        end_datetime = datetime.strptime(end_time, fmt)
+        
+        # duration in minutes
+        duration = ((end_datetime - start_datetime).total_seconds()) / 60
+        
+        self.queue.append((name, start_time, end_time, duration))
         self.queue.sort()
         
-    def remove_min(self):
+    def remove_next_patient(self):
         if not self.is_empty():
             return self.queue.pop(0)
+        return None
     def is_empty(self):
         return len(self.queue) == 0
     
@@ -31,21 +40,22 @@ queue = HospitalQueue()
 
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
-    for name, appointment_time in queue.queue:
-        patient_listbox.insert(tk.END, f'{name.capitalize()}: {appointment_time}h')
+    for name, start_time, end_time, duration in queue.queue:
+        patient_listbox.insert(tk.END, f'{name.capitalize()}: [{start_time} - {end_time}], {int(duration)}')
     
 
 
 
 def add_patient():
     name = name_entry.get()
-    appointment_time = int(time_entry.get())
-    queue.add_patient(name, appointment_time)
+    start_time = start_time_entry.get()
+    end_time = end_time_entry.get()
+    queue.add_patient(name, start_time, end_time)
     refresh_listbox()
     
 
 def remove_next_patient():
-    next_patient = queue.remove_min()
+    next_patient = queue.remove_next_patient()
     if next_patient:
         refresh_listbox()
 
@@ -55,10 +65,15 @@ name_label.pack()
 name_entry = tk.Entry(root)
 name_entry.pack()
 
-time_label = tk.Label(root, text='Appointment Time:')
-time_label.pack()
-time_entry = tk.Entry(root)
-time_entry.pack()
+start_time_label = tk.Label(root, text='Start Time:')
+start_time_label.pack()
+start_time_entry = tk.Entry(root)
+start_time_entry.pack()
+
+end_time_label = tk.Label(root, text='End Time:')
+end_time_label.pack()
+end_time_entry = tk.Entry(root)
+end_time_entry.pack()
 
 add_button = tk.Button(root, text='Add', command=add_patient)
 add_button.pack()
