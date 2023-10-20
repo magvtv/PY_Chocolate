@@ -11,7 +11,7 @@ class HospitalQueue:
         self.queue = []
         
     def add_patient(self, name, appointment_time):
-        self.queue.append(name, appointment_time)
+        self.queue.append((name, appointment_time))
         self.queue.sort()
         
     def remove_min(self):
@@ -30,8 +30,8 @@ queue = HospitalQueue()
 
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
-    for appointment_time, name in queue.queue:
-        patient_listbox.insert(tk.END, f'{name} - {appointment_time}')
+    for name, appointment_time in queue.queue:
+        patient_listbox.insert(tk.END, f'{name} at {appointment_time}')
     
 
 
