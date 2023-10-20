@@ -15,6 +15,7 @@ class HospitalQueue:
         self.queue = []
         
     def add_patient(self, name, appointment_time):
+        name = name.title()
         self.queue.append((name, appointment_time))
         self.queue.sort()
         
@@ -33,6 +34,8 @@ class HospitalQueue:
 def format_to_12hr(time):
     time_obj = datetime.strptime(time, '%H%M')
     return time_obj.strftime('%I:%M %p')
+def convert_time_format():
+    refresh_listbox()
     
 root = tk.Tk()
 root.title('Appointment Checkup')
@@ -76,5 +79,13 @@ remove_button.pack()
 
 patient_listbox = tk.Listbox(root)
 patient_listbox.pack()
+
+show_12hr = tk.BooleanVar()
+show_12hr.set(False)
+time_checkbox = tk.Checkbutton(root, text='Show 12hr format', variable=show_12hr)
+time_checkbox.pack()
+
+convert_time_button = tk.Button(root, text='Apply Format', command=convert_time_format)
+convert_time_button.pack()
 
 root.mainloop()
