@@ -17,10 +17,14 @@ class HospitalQueue:
         start_datetime = datetime.strptime(start_time, fmt)
         end_datetime = datetime.strptime(end_time, fmt)
         
-        # duration in minutes
-        duration = ((end_datetime - start_datetime).total_seconds()) / 60
+        # duration in minutes first then bigger into hours and minutes
+        duration_mins = ((end_datetime - start_datetime).total_seconds()) / 60
+        duration_hr = duration_mins // 60
+        duration_rem_mins = duration_mins % 60
         
-        self.queue.append((name, start_time, end_time, duration))
+        
+        
+        self.queue.append((name, start_time, end_time, duration_hr, duration_rem_mins))
         self.queue.sort()
         
     def remove_next_patient(self):
@@ -40,11 +44,8 @@ queue = HospitalQueue()
 
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
-    for name, start_time, end_time, duration in queue.queue:
-        patient_listbox.insert(tk.END, f'{name.capitalize()}: [{start_time} - {end_time}], {int(duration)}')
-    
-
-
+    for name, start_time, end_time, duration_hr, duration_rem_mins in queue.queue:
+        patient_listbox.insert(tk.END, f'{name.capitalize()}:  {int(duration_hr)}h {int(duration_rem_mins)}m - [{start_time} - {end_time}]')
 
 def add_patient():
     name = name_entry.get()
@@ -65,12 +66,12 @@ name_label.pack()
 name_entry = tk.Entry(root)
 name_entry.pack()
 
-start_time_label = tk.Label(root, text='Start Time:')
+start_time_label = tk.Label(root, text='Start Time (HHmm):')
 start_time_label.pack()
 start_time_entry = tk.Entry(root)
 start_time_entry.pack()
 
-end_time_label = tk.Label(root, text='End Time:')
+end_time_label = tk.Label(root, text='End Time (HHmm):')
 end_time_label.pack()
 end_time_entry = tk.Entry(root)
 end_time_entry.pack()
