@@ -49,3 +49,23 @@ def remove_next_patient():
         refresh_listbox()
 
 
+name_label = tk.Label(root, text='Patient\'s Name:')
+name_label.pack()
+name_entry = tk.Entry(root)
+name_entry.pack()
+
+time_label = tk.Label(root, text='Appointment Time:')
+time_label.pack()
+time_entry = tk.Entry(root)
+time_entry.pack()
+
+add_button = tk.Button(root, text='Add', command=add_patient)
+add_button.pack()
+
+remove_button = tk.Button(root, text='Remove', command=remove_next_patient)
+remove_button.pack()
+
+patient_listbox = tk.Listbox(root)
+patient_listbox.pack()
+
+root.mainloop()
