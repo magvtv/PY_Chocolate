@@ -5,12 +5,13 @@
 """
 
 import tkinter as tk
+from datetime import datetime
 
 class HospitalQueue:
     def __init__(self):
         self.queue = []
         
-    def add_patient(self, name, appointment_time):
+    def add_patient(self, name, start_time, end_time):
         self.queue.append((name, appointment_time))
         self.queue.sort()
         
@@ -31,7 +32,7 @@ queue = HospitalQueue()
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
     for name, appointment_time in queue.queue:
-        patient_listbox.insert(tk.END, f'{name} at {appointment_time}')
+        patient_listbox.insert(tk.END, f'{name.capitalize()}: {appointment_time}h')
     
 
 
