@@ -1,3 +1,8 @@
+"""
+    implementing a candy dispenser with knowledge from Stack ADT
+"""
+
+
 import tkinter as tk
 from tkinter import messagebox
 
