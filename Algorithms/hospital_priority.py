@@ -32,7 +32,7 @@ class HospitalQueue:
 
 def format_to_12hr(time):
     time_obj = datetime.strptime(time, '%H%M')
-    return time_obj.strptime('%I:%M %p')
+    return time_obj.strftime('%I:%M %p')
     
 root = tk.Tk()
 root.title('Appointment Checkup')
