@@ -15,9 +15,6 @@ class HospitalQueue:
         self.queue = []
         
     def add_patient(self, name, appointment_time):
-        # calculate the duration of the appointment
-        fmt = '%H%Mh'
-        start_datetime = datetime.strptime(appointment_time, fmt)
         self.queue.append((name, appointment_time))
         self.queue.sort()
         
@@ -31,21 +28,27 @@ class HospitalQueue:
     
     def length(self):
         return len(self.queue)
+
+
+def format_to_12hr(time):
+    time_obj = datetime.strptime(time, '%H%M')
+    return time_obj.strptime('%I:%M %p')
     
 root = tk.Tk()
-root.title = ('Appointment Checkup')
+root.title('Appointment Checkup')
 
 queue = HospitalQueue()
 
 def refresh_listbox():
     patient_listbox.delete(0, tk.END)
     for name, appointment_time in queue.queue:
-        patient_listbox.insert(tk.END, f'{name.capitalize()}: {appointment_time}')
+        patient_listbox.insert(tk.END, f'{name}: {appointment_time}')
 
 def add_patient():
     name = name_entry.get()
     appointment_time = appointment_time_entry.get()
-    queue.add_patient(name, appointment_time)
+    appointment_time_12hr = format_to_12hr(appointment_time)
+    queue.add_patient(name, appointment_time_12hr)
     refresh_listbox()
     
 
@@ -60,7 +63,7 @@ name_label.pack()
 name_entry = tk.Entry(root)
 name_entry.pack()
 
-appointment_time_label = tk.Label(root, text='Booking Time (HHmm):')
+appointment_time_label = tk.Label(root, text='Booking Time 24h (HHMM):')
 appointment_time_label.pack()
 appointment_time_entry = tk.Entry(root)
 appointment_time_entry.pack()
