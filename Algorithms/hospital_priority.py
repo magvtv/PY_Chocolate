@@ -33,6 +33,7 @@ root = tk.Tk()
 root.title("Hospital Checkup Appointment")
 
 queue = HospitalQueue()
+time_format_24hr = True
 
 # Function to add a patient
 def add_patient():
@@ -50,8 +51,21 @@ def remove_next_patient():
 # Function to update the list of patients
 def refresh_listbox():
     patients_listbox.delete(0, tk.END)
+    
+    fmt_24hr = "%H%M"
+    fmt_12hr = "%I:%M %p"
+
     for _, name, checkin_time_12hr in queue.queue:
-        patients_listbox.insert(tk.END, f"{name}: {checkin_time_12hr}")
+        if time_format_24hr:
+            checkin_time_24hr = datetime.strptime(checkin_time_12hr, fmt_12hr).strftime(fmt_24hr)
+        else:
+            checkin_time_24hr = checkin_time_12hr
+        patients_listbox.insert(tk.END, f"{name}: {checkin_time_24hr}")
+
+def toggle_time_format():
+    global time_format_24hr
+    time_format_24hr = not time_format_24hr
+    refresh_listbox()
 
 # Entry fields for name and check-in time
 name_label = tk.Label(root, text="Patient Name:")
@@ -66,9 +80,7 @@ checkin_time_entry.pack()
 
 # Option to display time in 12-hour format
 show_12hr_time = tk.BooleanVar()
-show_12hr_time.set(False)
-show_12hr_time_checkbox = tk.Checkbutton(root, text="Show in 12-hour format", variable=show_12hr_time)
-show_12hr_time_checkbox.pack()
+show_12hr_time.set(True)
 
 # Buttons to add and remove patients
 add_button = tk.Button(root, text="Add Patient", command=add_patient)
@@ -86,7 +98,9 @@ def convert_time_format():
     refresh_listbox()  # Refresh the listbox to apply the format change
 
 # Button to apply time format conversion
-convert_time_button = tk.Button(root, text="Apply Time Format", command=convert_time_format)
+show_12hr_time_checkbox = tk.Checkbutton(root, text="Show in 12-hour format", variable=show_12hr_time)
+show_12hr_time_checkbox.pack()
+convert_time_button = tk.Button(root, text="Toggle Time Format", command=convert_time_format)
 convert_time_button.pack()
 
 root.mainloop()
