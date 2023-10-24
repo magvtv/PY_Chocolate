@@ -130,6 +130,7 @@ def display_seating(cinema, showtime):
 
 # Main reservation function
 def reserve_seat():
+    
     # Get user's location choice
     print("Select a cinema location:")
     for cinema, town in cinema_locations.items():
@@ -156,7 +157,7 @@ def reserve_seat():
     display_seating(cinema_choice, showtime_choice)
 
     # Get seat selection
-    row = input("Enter the row (e.g., A, B, L): ")
+    row = input("Enter the row (e.g., A, B, L): ").upper()
     seat_number = int(input(f"Enter the seat number (1-{len(cinema_seats[cinema_choice][row])}): ")) - 1
 
     if seat_number < 0 or seat_number >= len(cinema_seats[cinema_choice][row]):
@@ -168,6 +169,7 @@ def reserve_seat():
     # Get ticket category
     print("Select a ticket category (adult/senior/child):")
     category = input("Enter the category: ").lower()
+    full_name = input("Enter full name: ").title()
     
     if category not in ticket_prices:
         print("Invalid category. Please try again.")
@@ -175,7 +177,7 @@ def reserve_seat():
 
     # Calculate and display the total price
     price = ticket_prices[category]
-    print(f"Ticket for {showtimes[showtime_choice]} at {cinema_choice} - Row {row}, Seat {seat_number + 1} ({category.capitalize()}): KES{price:.2f}")
+    print(f"Ticket for \n{showtimes[showtime_choice]} at {cinema_choice} \nSeat: {row}{seat_number + 1} \nFull Name: {full_name} \nCategory: {category.capitalize()} \nTotal: KES {price:.2f}")
 
 # Start reservation
 reserve_seat()
