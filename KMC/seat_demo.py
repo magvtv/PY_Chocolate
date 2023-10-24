@@ -1,3 +1,5 @@
+import os
+
 # Define cinema locations and showtimes
 cinema_locations = [
     "Nairobi",
@@ -121,6 +123,12 @@ ticket_prices = {
     "child": 350,
 }
 
+def clear_screen():
+    if os.name != 'nt':
+        os.system('clear')
+    else:
+        os.system('cls')
+
 # Define a function to display available seating for a given cinema and showtime
 def display_seating(cinema, showtime):
     seats = cinema_seats[cinema]
@@ -128,8 +136,6 @@ def display_seating(cinema, showtime):
 
     for row, seats_available in seats.items():
         print(f"Row {row}: {' '.join(seats_available)}")
-
-
 
 
 def display_available_seats(chosen_location, chosen_row):
@@ -147,7 +153,7 @@ def display_available_seats(chosen_location, chosen_row):
 
 # Main reservation function
 def reserve_seat():
-    
+    clear_screen()
     # Get user's location choice
     print("Select a cinema location:")
     for index, town in enumerate(cinema_locations, start=1):
@@ -192,6 +198,11 @@ def reserve_seat():
         print("Invalid category. Please try again.")
         return
 
+    # Clear the screen after displaying the final output
+    input("Press Enter to clear the screen.")
+    clear_screen()
+    
+    
     # Calculate and display the total price
     price = ticket_prices[category]
     print(f"The Nun II Ticket Confirmed:\nShowtime: {showtimes[showtime_choice]} \nVenue: {cinema_choice} \nSeat: {row}{seat_number + 1} \nFull Name: {full_name} \nCategory: {category.capitalize()} \nTotal: KES {price:.2f}")
