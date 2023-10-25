@@ -4,6 +4,7 @@
 """
 
 import random
+import os
 import string
 
 #Base class for MovieGoer
@@ -60,7 +61,12 @@ def PrintDetails(binger):
     print(f"Seats: {binger.number_of_seats}")
     print(f"Snacks: {', '.join(binger.snacks)}")
     print(f"Served By: {binger.served_by}   {binger.theatre_job_id}")
-    
+
+def clear_screen():
+    if os.system != 'nt':
+        os.system('clear')
+    else:
+        os.system('cls')
 
 #My usage example
 if __name__ == "__main__":
@@ -75,6 +81,7 @@ if __name__ == "__main__":
         "Nick Karanja",
         "KMC344"
     )
+    clear_screen()
     total_cost1 = binger1.calculate_total_cost(snackbar)
     print("Film Ticket Confirmed: ")
     PrintDetails(binger1)
