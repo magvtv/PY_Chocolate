@@ -72,14 +72,14 @@ def clear_screen():
 if __name__ == "__main__":
     snackbar = SnackBar()
     binger1 = TicketBooking(
-        "Margaret Onyancha",
-        "maggieonyancha99@gmail.com",
+        "Sharon Mukiri",
+        "shamuks2001@gmail.com",
         2,
-        "Barbie",
-        "2000h-2200h",
-        ["Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
-        "Nick Karanja",
-        "KMC344"
+        "Killers of the Flower Moon",
+        "1530h-1700h",
+        ["Pringles XL", "Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
+        "Eunice Mabea",
+        "KMC014"
     )
     clear_screen()
     total_cost1 = binger1.calculate_total_cost(snackbar)
