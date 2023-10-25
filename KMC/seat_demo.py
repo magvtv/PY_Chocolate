@@ -205,7 +205,7 @@ def reserve_seat():
     
     # Calculate and display the total price
     price = ticket_prices[category]
-    print(f"The Nun II Ticket Confirmed:\nShowtime: {showtimes[showtime_choice]} \nVenue: {cinema_choice} \nSeat: {row}{seat_number + 1} \nFull Name: {full_name} \nCategory: {category.capitalize()} \nTotal: KES {price:.2f}")
+    print(f"The Nun II Ticket Confirmed:\nFull Name: {full_name}\nCategory: {category.capitalize()}\nVenue: {cinema_choice} KMC Theatre \nShowtime: {showtimes[showtime_choice]} \nSeat: {row}{seat_number + 1} \nTotal: KES {price:.2f}")
 
 # Start reservation
 reserve_seat()
