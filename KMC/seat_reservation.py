@@ -13,13 +13,12 @@ cinema_locations = [
 showtimes = {
     # shows run for 2 hours by default
     # 15 minutes after show for cleaning
-    "0900h": "Early Bird",
-    "1115h": "Regular Viewer",
-    "1330h": "Matinee Goers",
-    "1545h": "Twilight Watchers",
-    "1800h": "Red Carpeters",
-    "2015h": "Night Owls"
-
+    "0900": "Early Bird",
+    "1115": "Regular Viewer",
+    "1330": "Matinee Goers",
+    "1545": "Twilight Watchers",
+    "1800": "Red Carpeters",
+    "2015": "Night Owls",
 }
 
 # Define seat availability for each cinema location
@@ -175,18 +174,18 @@ def reserve_seat():
     for index, town in enumerate(cinema_locations, start=1):
         print(f"{index}. {town}")
     
-    cinema_choice = input("Enter where you\'ll watch The Nun II: ").capitalize()
+    cinema_choice = input("Where will you be watching \'The Nun II\': ").capitalize()
     
     if cinema_choice not in cinema_locations:
         print("Invalid cinema location. Please try again.")
         return
     
     # Get user's showtime choice
-    print("Select a showtime:")
+    print("Choose your showtime:")
     for showtime, showtime_name in showtimes.items():
-        print(f"{showtime} - {showtime_name}")
+        print(f"{showtime}h - {showtime_name}")
     
-    showtime_choice = input("Enter the showtime (e.g., 0900): ")
+    showtime_choice = input("Enter the showtime (eg. 0900): ")
     
     if showtime_choice not in showtimes:
         print("Invalid showtime. Please try again.")
@@ -196,23 +195,21 @@ def reserve_seat():
     display_seating(cinema_choice, showtime_choice)
 
     # Get seat selection
-    row = input("Enter the row (e.g., A, B, L): ").upper()
-    seat_number = int(input(f"Enter the seat number (1-{len(cinema_seats[cinema_choice][row])}): ")) - 1
+    row = input("Pick your row (eg., A, F... ): ").upper()
+    seat_number = int(input(f"Choose your seat by number (1-{len(cinema_seats[cinema_choice][row])}): ")) - 1
 
     if seat_number < 0 or seat_number >= len(cinema_seats[cinema_choice][row]):
         print("Invalid seat number. Please try again.")
         return
 
     seat = cinema_seats[cinema_choice][row][seat_number]
-
-    # Clear the screen after displaying the final output
-    input("Press Enter to clear the screen.")
+    
     clear_screen()
     
     
     # Calculate and display the total price
     price = ticket_prices[category]
-    print(f"The Nun II Ticket Confirmed:\nFull Name: {full_name}\nCategory: {category.capitalize()}\nVenue: {cinema_choice} KMC Theatre \nShowtime: {showtimes[showtime_choice]} \nSeat: {row}{seat_number + 1} \nTotal: KES {price:.2f}")
+    print(f"The Nun II Ticket Confirmed:\nFull Name: {full_name}\nCategory: {category.capitalize()}\nVenue: {cinema_choice} KMC Theatre \nShowtime: {showtimes[showtime_name]} ({showtimes[showtime]})h \nSeat: {row}{seat_number + 1} \nTotal: KES {price:.2f}")
 
 # Start reservation
 reserve_seat()
