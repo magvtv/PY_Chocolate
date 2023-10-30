@@ -1,12 +1,11 @@
 """
-might need to broadern the snackbar items. 
+might need to broaden the snackbar items. 
 realized i can have a brand and their specific items in weight, volume
 starting out, will be sure to grow this module. 
 kinda works like a database for all the concession stand snacks
 snack > brand > item (size, weight)
 
 """
-
 
 concession_stand = {
     # frozen chilled snacks
