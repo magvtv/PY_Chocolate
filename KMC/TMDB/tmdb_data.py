@@ -22,7 +22,7 @@ api_key, access_token = load_config()
 
 def tmdb_movie_data():
     url = "https://api.themoviedb.org/3/search/movie"
-    query = 'Saw X'
+    query = input("Enter now playing film from TMDB:\n")
     headers = {
         'Authorization': f'Bearer {access_token}',
         'Accept': 'application/json'
@@ -36,7 +36,8 @@ def tmdb_movie_data():
     
     if(response.status_code == 200):
         data = response.json()
-        print(data)
+        format_data = json.dumps(data, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=3, separators=None, default=None, sort_keys=True)
+        print(format_data)
     else:
         print(f'Request failed. Status code {response.status_code}')
     
