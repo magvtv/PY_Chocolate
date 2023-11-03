@@ -1,4 +1,5 @@
-import json
+import json, requests
+
 
 # load the the api token and the api key from the configx.isdisjoint(y)
 def load_config():
@@ -12,8 +13,31 @@ def load_config():
         print("Config json file not found!")
         exit(1)
     except KeyError:
-        print('API key and access token missing in your config file!')
+        print("API key and access token missing in your config file!")
         exit(1)
-        
+
+
 api_key, access_token = load_config()
-print(f'API Key: {api_key} \nAccess Token: {access_token}')
+# print(f"API Key: {api_key} \nAccess Token: {access_token}")
+
+def tmdb_movie_data():
+    url = "https://api.themoviedb.org/3/search/movie"
+    query = 'Saw X'
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Accept': 'application/json'
+    }
+
+    parameters = {
+        'query': query
+    }
+    
+    response = requests.get(url, params=parameters, headers=headers)
+    
+    if(response.status_code == 200):
+        data = response.json()
+        print(data)
+    else:
+        print(f'Request failed. Status code {response.status_code}')
+    
+tmdb_movie_data()
