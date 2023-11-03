@@ -1,3 +1,4 @@
 from snackbar import concession_stand
 
-print(concession_stand['Drinks']['Olipop'])
+drinks = concession_stand['Arbys']
+print(drinks)
