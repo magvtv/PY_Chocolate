@@ -22,7 +22,7 @@ api_key, access_token = load_config()
 
 def tmdb_movie_data():
     url = "https://api.themoviedb.org/3/search/movie"
-    query = input("Enter now playing film from TMDB:\n").capitalize()
+    query = input("Enter any film title:\n").capitalize()
     headers = {
         'Authorization': f'Bearer {access_token}',
         'Accept': 'application/json'
