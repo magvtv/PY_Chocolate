@@ -60,7 +60,7 @@ def refresh_listbox():
             checkin_time_24hr = datetime.strptime(checkin_time_12hr, fmt_12hr).strftime(fmt_24hr)
         else:
             checkin_time_24hr = checkin_time_12hr
-        patients_listbox.insert(tk.END, f"{name}: {checkin_time_24hr}")
+        patients_listbox.insert(tk.END, f"{name}: {checkin_time_24hr}h")
 
 def toggle_time_format():
     global time_format_24hr
@@ -98,9 +98,15 @@ def convert_time_format():
     refresh_listbox()  # Refresh the listbox to apply the format change
 
 # Button to apply time format conversion
-show_12hr_time_checkbox = tk.Checkbutton(root, text="Show in 12-hour format", variable=show_12hr_time)
-show_12hr_time_checkbox.pack()
-convert_time_button = tk.Button(root, text="Toggle Time Format", command=convert_time_format)
-convert_time_button.pack()
+# show_12hr_time_checkbox = tk.Checkbutton(root, text="Show in 12-hour format", variable=show_12hr_time)
+# show_12hr_time_checkbox.pack()
+# convert_time_button = tk.Button(root, text="Toggle Time Format", command=convert_time_format)
+# convert_time_button.pack()
 
 root.mainloop()
+
+"""
+    make the program more defensive
+    no one on list - output error
+    
+"""
