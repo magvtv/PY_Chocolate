@@ -88,7 +88,7 @@ concession_stand = {
             "Coke": 70,
         },
     },
-    "Snacks": {
+    "KMC Snacks": {
         "Popcorns": {
             "Small": 150,
             "Regular": 210,
