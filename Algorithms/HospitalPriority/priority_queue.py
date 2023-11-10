@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 
 class PriorityQueue:
@@ -8,8 +8,8 @@ class PriorityQueue:
     def is_empty(self):
         return len(self.queue) == 0
 
-    def enqueue(self, patient):
-        self.queue.append(patient)
+    def enqueue(self, patient, time):
+        self.queue.append(patient, time)
         self.queue.sort(
             key=lambda x: x["time"]
         )  # Sort the queue based on appointment time
@@ -37,10 +37,12 @@ def validate_time_format(time_str):
 
 
 def convert_to_12hr(time_str):
+    time_obj = datetime.strptime(time_str, "%H:%M")
     # Convert 24hr time format to 12hr time format
-    return datetime.datetime.strptime(time_str, "%H:%M").strftime("%I:%M %p")
+    return time_obj.strftime("%I:%M %p")
 
 
 def convert_to_24hr(time_str):
+    time_obj = datetime.strptime(time_str,"%I:%M %p")
     # Convert 12hr time format to 24hr time format
-    return datetime.datetime.strptime(time_str, "%I:%M %p").strftime("%H:%M")
+    return time_obj.strftime("%H:%M")
