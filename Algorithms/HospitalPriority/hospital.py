@@ -1,112 +1,78 @@
+from priority_queue import (
+    PriorityQueue,
+    validate_time_format,
+    convert_to_12hr,
+    convert_to_24hr,
+)
 import tkinter as tk
-from datetime import datetime
+from tkinter import messagebox
 
-class HospitalQueue:
-    def __init__(self):
-        self.queue = []
 
-    def add_patient(self, name, checkin_time):
-        name = name.title()
-        # Accept 24-hour time and convert it to a 12-hour format for display
-        fmt_24hr = "%H%M"
-        fmt_12hr = "%I:%M %p"
-        checkin_datetime = datetime.strptime(checkin_time, fmt_24hr)
-        checkin_convert_12hr = checkin_datetime.strftime(fmt_12hr)
+def add_appointment():
+    patient_name = name_entry.get()
+    appointment_time = entry.get()
+    if not validate_time_format(appointment_time):
+        messagebox.showerror("Invalid Format", "Invalid time format. Please use HH:MM.")
+        return
 
-        # Add the patient as a tuple (checkin_time, name)
-        self.queue.append((checkin_datetime, name, checkin_convert_12hr))
-        self.queue.sort()  # Sort by checkin_time
+    queue.enqueue({"name": patient_name, "time": appointment_time})
+    entry.delete(0, tk.END)
 
-    def remove_next_patient(self):
-        if not self.is_empty():
-            return self.queue.pop(0)
-        return None
 
-    def is_empty(self):
-        return len(self.queue) == 0
+def display_queue():
+    if queue.is_empty():
+        messagebox.showinfo("Empty Queue", "The hospital priority queue is empty.")
+    else:
+        display_text = "Hospital Priority Queue:\n"
+        for appointment in queue.queue:
+            display_text += (
+                f"Name: {appointment['name']}, Time: {appointment['time']}\n"
+            )
+        messagebox.showinfo("Current Queue", display_text)
 
-    def length(self):
-        return len(self.queue)
 
-# Create the tkinter application
-root = tk.Tk()
-root.title("Hospital Checkup Appointment")
-
-queue = HospitalQueue()
-time_format_24hr = True
-
-# Function to add a patient
-def add_patient():
-    name = name_entry.get()
-    checkin_time = checkin_time_entry.get()
-    queue.add_patient(name, checkin_time)
-    refresh_listbox()
-
-# Function to remove the next patient
-def remove_next_patient():
-    next_patient = queue.remove_next_patient()
-    if next_patient:
-        refresh_listbox()
-
-# Function to update the list of patients
-def refresh_listbox():
-    patients_listbox.delete(0, tk.END)
-    
-    fmt_24hr = "%H%M"
-    fmt_12hr = "%I:%M %p"
-
-    for _, name, checkin_time_12hr in queue.queue:
-        if time_format_24hr:
-            checkin_time_24hr = datetime.strptime(checkin_time_12hr, fmt_12hr).strftime(fmt_24hr)
+def convert_time():
+    appointment_time = entry.get()
+    if appointment_time:
+        if validate_time_format(appointment_time):
+            if time_format.get() == 12:
+                converted_time = convert_to_12hr(appointment_time)
+            else:
+                converted_time = convert_to_24hr(appointment_time)
+            entry.delete(0, tk.END)
+            entry.insert(0, converted_time)
         else:
-            checkin_time_24hr = checkin_time_12hr
-        patients_listbox.insert(tk.END, f"{name}: {checkin_time_24hr}h")
+            messagebox.showerror(
+                "Invalid Format", "Invalid time format. Please use HH:MM."
+            )
 
-def toggle_time_format():
-    global time_format_24hr
-    time_format_24hr = not time_format_24hr
-    refresh_listbox()
 
-# Entry fields for name and check-in time
-name_label = tk.Label(root, text="Patient Name:")
-name_label.pack()
-name_entry = tk.Entry(root)
-name_entry.pack()
+if __name__ == "__main__":
+    queue = PriorityQueue()
 
-checkin_time_label = tk.Label(root, text="Check-in Time (24-hour format HHMM):")
-checkin_time_label.pack()
-checkin_time_entry = tk.Entry(root)
-checkin_time_entry.pack()
+    root = tk.Tk()
 
-# Option to display time in 12-hour format
-show_12hr_time = tk.BooleanVar()
-show_12hr_time.set(True)
+    label_name = tk.Label(root, text="Enter Patient Name:")
+    name_entry = tk.Entry(root)
+    label_time = tk.Label(root, text="Enter Appointment Time (HH:MM):")
+    entry = tk.Entry(root)
+    add_button = tk.Button(root, text="Add Appointment", command=add_appointment)
+    display_button = tk.Button(root, text="Display Queue", command=display_queue)
+    convert_button = tk.Button(root, text="Convert Time", command=convert_time)
 
-# Buttons to add and remove patients
-add_button = tk.Button(root, text="Add Patient", command=add_patient)
-add_button.pack()
+    time_format = tk.IntVar()
+    time_format.set(24)
+    time_format_24hr = tk.Radiobutton(root, text="24hr", variable=time_format, value=24)
+    time_format_12hr = tk.Radiobutton(root, text="12hr", variable=time_format, value=12)
 
-remove_button = tk.Button(root, text="Remove Next Patient", command=remove_next_patient)
-remove_button.pack()
+    label_name.pack()
+    name_entry.pack()
+    label_time.pack()
+    entry.pack()
+    add_button.pack()
+    display_button.pack()
+    time_format_24hr.pack()
+    time_format_12hr.pack()
+    convert_button.pack()
 
-# Listbox to display patients
-patients_listbox = tk.Listbox(root)
-patients_listbox.pack()
-
-# Function to handle time format conversion
-def convert_time_format():
-    refresh_listbox()  # Refresh the listbox to apply the format change
-
-# Button to apply time format conversion
-# show_12hr_time_checkbox = tk.Checkbutton(root, text="Show in 12-hour format", variable=show_12hr_time)
-# show_12hr_time_checkbox.pack()
-# convert_time_button = tk.Button(root, text="Toggle Time Format", command=convert_time_format)
-# convert_time_button.pack()
-
-root.mainloop()
-
-"""
-    make the program more defensive
-    no one on list - output error
-    
-"""
+    root.mainloop()
