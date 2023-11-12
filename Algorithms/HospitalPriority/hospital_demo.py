@@ -2,6 +2,7 @@ import tkinter as tk
 from datetime import datetime
 
 
+
 class HospitalQueue:
     def __init__(self):
         self.queue = []
@@ -19,9 +20,9 @@ class HospitalQueue:
         self.queue.sort()  # Sort by checkin_time
 
     def remove_next_patient(self):
-        if not self.is_empty():
-            return self.queue.pop(0)
-        return None
+        if self.is_empty():
+            return None
+        return self.queue.pop(0)
 
     def is_empty(self):
         return len(self.queue) == 0

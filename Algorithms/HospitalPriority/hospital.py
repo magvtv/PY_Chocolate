@@ -1,23 +1,14 @@
+from email import message
 from priority_queue import (
-    PriorityQueue,
+    CustomPriorityQueue,
     validate_time_format,
     convert_to_12hr,
     convert_to_24hr,
 )
+
 import tkinter as tk
+import re
 from tkinter import messagebox, Listbox, END, StringVar
-
-
-class CustomPriorityQueue(PriorityQueue):
-    def __str_(self):
-        return str(list(self.queue))
-
-    def enqueue(self, patient):
-        self.put(patient)
-
-    def dequeue(self):
-        return self.get()
-
 
 queue = CustomPriorityQueue()
 root = tk.Tk()
@@ -25,19 +16,34 @@ root.title("Hospital Checkup Appointment")
 
 
 def refresh_listbox():
-    patient_listbox.delete(0, tk.END)
+    if queue.is_empty():
+        messagebox.showinfo("Empty Queue", "The hospital priority queue is empty.")
+    
+    # patient_listbox.delete(0, tk.END)
     for patient in queue:
         time_str = (
-            convert_to_12hr(patient["time"])
+            convert_to_12hr(patient["Time"])
             if time_format.get() == "12hr"
-            else convert_to_24hr(patient["time"])
+            else convert_to_24hr(patient["Time"])
         )
         patient_listbox.insert(END, f"Name: {patient['name']}, Time: {time_str}")
 
 
+def is_valid_name(name):
+    return name.isalpha()
+
+
+def is_valid_time(time):
+    return time.isdigit()
+
+
 def add_appointment():
-    patient_name = name_entry.get()
-    checkin_time = time_entry.get()
+    patient_name = name_entry.get().strip()
+    if not is_valid_name(patient_name):
+        messagebox.showerror("Invalid Name!", "Please use alphabet characters only.")
+    checkin_time = time_entry.get().strip()
+    if not is_valid_time(checkin_time):
+        messagebox.showerror("Invalid Time!", "Please use digits only for time.")
     if not validate_time_format(checkin_time):
         messagebox.showerror("Invalid Format!", "Please use HH:MM.")
         return
@@ -54,11 +60,6 @@ def remove_patient():
 
 def toggle_time_format():
     refresh_listbox()
-
-
-def display_queue():
-    if queue.is_empty():
-        messagebox.showinfo("Empty Queue", "The hospital priority queue is empty.")
 
 
 if __name__ == "__main__":
