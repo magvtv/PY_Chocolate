@@ -4,3 +4,5 @@ RandomTexts/
 *__pycache__/
 CustomPython/
 KMC/TMDB/config.json
+Algorithms/CandyStack/__pycache__
+Algorithms/HospitalPriority/__pycache__
