@@ -2,15 +2,14 @@ from datetime import datetime
 
 # from queue import Queue
 
-
-def convert_to_12hr(time_str):
-    time_obj = datetime.strptime(time_str, "%H:%M")
-    # Convert 24hr time format to 12hr time format
-    return time_obj.strftime("%I:%M %p")
+# def convert_to_12hr(time_str):
+#     time_obj = datetime.strptime(time_str, "%H%M")
+#     # Convert 24hr time format to 12hr time format
+#     return time_obj.strftime("%I:%M %p")
 
 
 def convert_to_24hr(time_str):
-    time_obj = datetime.strptime(time_str, "%I:%M %p")
+    time_obj = datetime.strptime(time_str, "%H%M")
     # Convert 12hr time format to 24hr time format
     return time_obj.strftime("%H:%M")
 
@@ -18,13 +17,13 @@ def convert_to_24hr(time_str):
 def validate_time_format(time_str):
     # Check if the time is in the correct format (HH:MM)
     try:
-        datetime.strptime(time_str, "%H:%M")
+        datetime.strptime(time_str, "%H%M")
         return True
     except ValueError:
         return False
 
 
-class CustomPriorityQueue:
+class PriorityQueue:
     def __init__(self):
         self.queue = []
 
@@ -45,14 +44,14 @@ class CustomPriorityQueue:
 
     def add(self, item):
         self.queue.append(item)
-        self.queue.sort(key=lambda x: datetime.strftime(x['Time'], "%H:%M"))
+        self.queue.sort(key=lambda x: datetime.strftime(x['Time'], "%H%M"))
 
     def remove_next(self):
         if self.queue:
             return self.queue.pop(0)
 
     def refresh(self):
-        self.queue.sort(key=lambda x: datetime.strftime(x['Time'], "%H:%M"))
+        self.queue.sort(key=lambda x: datetime.strftime(x['Time'], "%H%M"))
 
     def get_queue(self):
         return self.queue
