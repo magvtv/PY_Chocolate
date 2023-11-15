@@ -1,7 +1,9 @@
 import tkinter as tk
-from tkinter import messagebox, Listbox, END, Button
+from tkinter import messagebox, Listbox, END, Button, Text
+from turtle import width
 from priority_queue import PriorityQueue, validate_time_format, convert_to_24hr
 import random
+
 # import re
 
 
@@ -22,6 +24,8 @@ def format_name(name):
 
 def add_appointment():
     patient_name = format_name(name_entry.get())
+    if not patient_name:
+        messagebox.showerror("Input Error", "Please enter patient name" )
     patient_code = (
         code_entry.get().upper() if code_entry.get() else generate_patient_code()
     )
@@ -36,7 +40,7 @@ def add_appointment():
     formatted_time = convert_to_24hr(checkin_time)
 
     queue.enqueue(
-        {'Name': patient_name, 'Code': patient_code, 'Time': (formatted_time)}
+        {"Name": patient_name, "Code": patient_code, "Time": (formatted_time)}
     )
 
     name_entry.delete(0, tk.END)
@@ -48,18 +52,21 @@ def add_appointment():
 def remove_next_patient():
     next_patient = queue.dequeue()
     if next_patient:
+        messagebox.showinfo(
+            "Hospital Alert", f"Currently serving {next_patient['Name']}"
+        )
         refresh_listbox()
     if queue.is_empty():
-        return "No patient scheduled!"
+        messagebox.showinfo("Hospital Alert", "All patients have been served!")
 
 
 def refresh_listbox():
-    patients_listbox.delete(0, tk.END)
+    # patients_listbox.delete(0, tk.END)
+    patient_text.delete("1.0", END)
     for patient in queue:
-        patients_listbox.insert(
-            END,
-            f"Name: {patient['Name']} \nID: {patient['Code']} \nTime: {patient['Time']}h",
-        )
+        formatted_text = f"Name: {patient['Name']} \nID: {patient['Code']} \nTime: {patient['Time']}h"
+        # patients_listbox.insert(END, formatted_text)
+        patient_text.insert(END, formatted_text, "\n")
 
 
 if __name__ == "__main__":
@@ -72,7 +79,9 @@ if __name__ == "__main__":
     name_entry = tk.Entry(root)
     name_entry.pack()
 
-    code_label = tk.Label(root, text=f"Patient Code (eg.{generate_patient_code()}):")
+    code_label = tk.Label(
+        root, text=f"Optional Patient Code (eg.{generate_patient_code()}):"
+    )
     code_label.pack()
     code_entry = tk.Entry(root)
     code_entry.pack()
@@ -85,12 +94,12 @@ if __name__ == "__main__":
     add_button = Button(root, text="Add Patient", command=add_appointment)
     add_button.pack()
 
-    remove_button = Button(root, text="Next Patient", command=remove_next_patient)
+    remove_button = Button(root, text="Serve Next Patient", command=remove_next_patient)
     remove_button.pack()
 
-    patients_listbox = Listbox(root, width=40)
-    patients_listbox.pack()
-    
+    patient_text = Text(root, width=50, height=10)
+    patient_text.pack()
+
     refresh_listbox()
-    
+
     root.mainloop()
