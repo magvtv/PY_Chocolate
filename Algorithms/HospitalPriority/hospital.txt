@@ -1,7 +1,0 @@
-implement a hospital priority queue with two modules
-1. priority module
-
-2. hospital module
-
-parallels in the both scripts
-- add patient functions
