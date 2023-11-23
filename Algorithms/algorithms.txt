@@ -1,14 +1,5 @@
 - patient condition
-would be nice to implement this
-stable, critical, emergency
-those awaiting assessment can be 'unknown'
-GOOD - patient is comfortable, okay within the 
-normal measures
-FAIR - uncomfortable though the vital signs are
-alright, indicators can be questions, acutely ill
-CRITICAL - indicators are unfavorable, unstable vital 
-signs, patient is either unconscious, fall under
-emergencies sudden accidents
+
 
 - cases after patient treatment
 1. can be released
