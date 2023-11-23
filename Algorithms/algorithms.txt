@@ -1,3 +1,17 @@
-- Bug: Sorting the patients in 12hr clock system
-hospital.py and priority_queue.py
-a way to sort them based on the convert_to_12hr system
+- patient condition
+would be nice to implement this
+stable, critical, emergency
+those awaiting assessment can be 'unknown'
+GOOD - patient is comfortable, okay within the 
+normal measures
+FAIR - uncomfortable though the vital signs are
+alright, indicators can be questions, acutely ill
+CRITICAL - indicators are unfavorable, unstable vital 
+signs, patient is either unconscious, fall under
+emergencies sudden accidents
+
+- cases after patient treatment
+1. can be released
+2. can be transfered
+
+
