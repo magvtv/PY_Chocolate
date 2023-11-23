@@ -1,0 +1,3 @@
+- Bug: Sorting the patients in 12hr clock system
+hospital.py and priority_queue.py
+a way to sort them based on the convert_to_12hr system
