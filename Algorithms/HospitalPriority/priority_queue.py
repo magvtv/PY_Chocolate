@@ -45,6 +45,9 @@ class PriorityQueue:
         self.queue.append(item)
         self.queue.sort(key=lambda x: datetime.strftime(x["Time"], "%H%M"))
 
+    def remove(self, item):
+        self.queue.remove(item)
+
     def remove_next(self):
         if self.queue:
             return self.queue.pop(0)

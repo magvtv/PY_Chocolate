@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, Listbox, END, Button, Text
+from tkinter import ttk, simpledialog, messagebox, Listbox, END, Button, Text
 from turtle import width
 from priority_queue import (
     PriorityQueue,
@@ -58,7 +58,7 @@ def add_appointment():
             "Name": patient_name,
             "Code": patient_code,
             "Time": (formatted_time),
-            "Condition": patient_condition
+            "Condition": patient_condition,
         }
     )
     name_entry.delete(0, tk.END)
@@ -68,8 +68,24 @@ def add_appointment():
     refresh_listbox()
 
 
+def cancel_appointment():
+    patient = simpledialog.askstring("Cancel Appointment", "Name:")
+    patient_name = format_name(patient)
+    patient_code = simpledialog.askstring('Cancel Appointment', "Health Service Code:")
+    
+    for patient in queue:
+        if patient['Name'].title() == patient_name and patient['Code'] == patient_code:
+            queue.remove(patient)
+            messagebox.showinfo("Cancel Apointment", f"Appointment for {patient_name} ({patient_code}) has been successfully cancelled")
+            refresh_listbox()
+            return
+            
+    messagebox.showinfo("Cancel Appointment", f"No appointment found for {patient_name} ({patient_code}).")
+            
+            
 """
-    the hospital serves the next patient, 
+    the hospital serves the next patient,
+    removing them from the appointment listing 
     sorts in order of timestamps (check in times)
 """
 
@@ -79,16 +95,21 @@ def remove_next_patient():
     if next_patient:
         messagebox.showinfo(
             "Hospital Alert",
-            f"Currently treating... \nName:  {next_patient['Name']} \nID: {next_patient['Code']}",
+            f"Currently treating... \nName:  {next_patient['Name']} \nCondition: {next_patient['Condition']}",
         )
         refresh_listbox()
     if queue.is_empty():
-        messagebox.showinfo("Hospital Alert", "All treated and released!")
+        messagebox.showinfo("Hospital Alert", "All patients are treated!")
 
 
 """
-    updates the visualized listbox of the
-    hospital appointment schedule 
+function to check patient condition
+GOOD means patient is comfortable and 
+okay within the normal measures. priority weight of 2. color of green on the tkinter listbox display
+FAIR means uncomfortable, the vital signs are alright, 
+indicators can be questions, acutely ill. priority weight of 1. can be yellow in color on the tkinter display
+CRITICAL means patient indicators are unfavorable 
+unstable vital signs,either unconscious, had sudden accident.
 """
 
 
@@ -103,6 +124,12 @@ def get_priority_color(condition):
         return None
 
 
+"""
+gives an updated version of the appointment schedule
+clears the labels for a new entry
+"""
+
+
 def refresh_listbox():
     patients_listbox.delete(0, tk.END)
     # patient_text.delete("1.0", END)
@@ -110,16 +137,20 @@ def refresh_listbox():
         priority_color = get_priority_color(patient["Condition"])
         formatted_text = f"Name: {patient['Name']}     ID: {patient['Code']}       Time:    {patient['Time']}h"
         patients_listbox.insert(END, formatted_text)
-        patients_listbox.itemconfig(tk.END, {
-            "bg": priority_color,
-            "fg": 'black',
-        })
+        patients_listbox.itemconfig(
+            tk.END,
+            {
+                "bg": priority_color,
+                "fg": "black",
+            },
+        )
         # patient_text.insert(END, formatted_text, "\n")
 
 
 """
     the main program incorporating all the functions above
-    defining labels and titles on each input
+    adding the titles, packing the entries, configuring fonts
+    the whole program is executed with tkinter mainloop
 """
 if __name__ == "__main__":
     queue = PriorityQueue()
@@ -154,13 +185,14 @@ if __name__ == "__main__":
 
     add_button = Button(root, text="Add Patient", command=add_appointment)
     add_button.pack()
+    
+    cancel_button = tk.Button(root, text="Cancel Appointment", command=cancel_appointment)
+    cancel_button.pack()
 
     remove_button = Button(root, text="Treat Next Patient", command=remove_next_patient)
     remove_button.pack()
 
-    patients_listbox = Listbox(
-        root, width=50, height=10, background="lightgoldenrod3"
-    )
+    patients_listbox = Listbox(root, width=50, height=10, background="lightgoldenrod3")
     patients_listbox.pack()
 
     refresh_listbox()
