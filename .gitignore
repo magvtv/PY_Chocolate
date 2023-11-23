@@ -1,7 +1,7 @@
 
-RandomTexts/
 .vscode/
-*__pycache__/
+/RandomTexts
+__pycache__/
 CustomPython/
 KMC/TMDB/config.json
 Algorithms/CandyStack/__pycache__
