@@ -9,9 +9,7 @@ from priority_queue import (
 )
 import random
 
-
 font_path = "/home/pharoh/.fonts/p/Plus_Jakarta_Sans/static/PlusJakartaSans-Light.ttf"
-
 """
     to get a unique code for any patient
     in the hospital appointment schedule
@@ -54,10 +52,17 @@ def add_appointment():
         )
         return
     formatted_time = convert_to_24hr(checkin_time)
+    patient_condition = condition_entry.get().upper()
     queue.enqueue(
-        {"Name": patient_name, "Code": patient_code, "Time": (formatted_time)}
+        {
+            "Name": patient_name,
+            "Code": patient_code,
+            "Time": (formatted_time),
+            "Condition": patient_condition,
+        }
     )
     name_entry.delete(0, tk.END)
+    condition_entry.delete(0, tk.END)
     code_entry.delete(0, tk.END)
     time_entry.delete(0, tk.END)
     refresh_listbox()
@@ -67,28 +72,48 @@ def add_appointment():
     the hospital serves the next patient, 
     sorts in order of timestamps (check in times)
 """
+
+
 def remove_next_patient():
     next_patient = queue.dequeue()
     if next_patient:
         messagebox.showinfo(
             "Hospital Alert",
-            f"Currently serving... \nName:  {next_patient['Name']} \nID: {next_patient['Code']}",
+            f"Currently treating... \nName:  {next_patient['Name']} \nID: {next_patient['Code']}",
         )
         refresh_listbox()
     if queue.is_empty():
-        messagebox.showinfo("Hospital Alert", "All patients have been served!")
+        messagebox.showinfo("Hospital Alert", "All treated and released!")
 
 
 """
     updates the visualized listbox of the
     hospital appointment schedule 
 """
+
+
+def get_priority_color(condition):
+    if condition == "GOOD":
+        return "chartreuse3"
+    elif condition == "FAIR":
+        return "darkgoldenrod1"
+    elif condition == "CRITICAL":
+        return "brown1"
+    else:
+        return
+
+
 def refresh_listbox():
     patients_listbox.delete(0, tk.END)
     # patient_text.delete("1.0", END)
     for patient in queue:
+        priority_color = get_priority_color(patient["Condition"])
         formatted_text = f"Name: {patient['Name']}     ID: {patient['Code']}       Time:    {patient['Time']}h"
         patients_listbox.insert(END, formatted_text)
+        patients_listbox.itemconfig(tk.END, {
+            "bg": priority_color,
+            "fg": 'black',
+        })
         # patient_text.insert(END, formatted_text, "\n")
 
 
@@ -117,6 +142,11 @@ if __name__ == "__main__":
     code_entry = tk.Entry(root)
     code_entry.pack()
 
+    condition_label = tk.Label(root, text="Patient Condition (Good, Fair, Critical)")
+    condition_label.pack()
+    condition_entry = tk.Entry(root)
+    condition_entry.pack()
+
     time_label = tk.Label(root, text="Check In Time (HHMM in 24h):")
     time_label.pack()
     time_entry = tk.Entry(root)
@@ -128,7 +158,9 @@ if __name__ == "__main__":
     remove_button = Button(root, text="Serve Next Patient", command=remove_next_patient)
     remove_button.pack()
 
-    patients_listbox = Listbox(root, width=50, height=10)
+    patients_listbox = Listbox(
+        root, width=50, height=10, background="sky blue", foreground="white"
+    )
     patients_listbox.pack()
 
     refresh_listbox()
