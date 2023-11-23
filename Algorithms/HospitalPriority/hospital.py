@@ -58,7 +58,7 @@ def add_appointment():
             "Name": patient_name,
             "Code": patient_code,
             "Time": (formatted_time),
-            "Condition": patient_condition,
+            "Condition": patient_condition
         }
     )
     name_entry.delete(0, tk.END)
@@ -100,7 +100,7 @@ def get_priority_color(condition):
     elif condition == "CRITICAL":
         return "brown1"
     else:
-        return
+        return None
 
 
 def refresh_listbox():
@@ -136,13 +136,13 @@ if __name__ == "__main__":
     name_entry.pack()
 
     code_label = tk.Label(
-        root, text=f"Optional Patient Code (eg. {generate_patient_code()}):"
+        root, text=f"Health Service Code (eg. {generate_patient_code()}):"
     )
     code_label.pack()
     code_entry = tk.Entry(root)
     code_entry.pack()
 
-    condition_label = tk.Label(root, text="Patient Condition (Good, Fair, Critical)")
+    condition_label = tk.Label(root, text="Patient Condition (Good/Fair/Critical):")
     condition_label.pack()
     condition_entry = tk.Entry(root)
     condition_entry.pack()
@@ -155,11 +155,11 @@ if __name__ == "__main__":
     add_button = Button(root, text="Add Patient", command=add_appointment)
     add_button.pack()
 
-    remove_button = Button(root, text="Serve Next Patient", command=remove_next_patient)
+    remove_button = Button(root, text="Treat Next Patient", command=remove_next_patient)
     remove_button.pack()
 
     patients_listbox = Listbox(
-        root, width=50, height=10, background="sky blue", foreground="white"
+        root, width=50, height=10, background="lightgoldenrod3"
     )
     patients_listbox.pack()
 
