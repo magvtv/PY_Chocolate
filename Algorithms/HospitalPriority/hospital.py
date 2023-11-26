@@ -69,20 +69,26 @@ def add_appointment():
 
 
 def cancel_appointment():
-    patient = simpledialog.askstring("Cancel Appointment", "Name:")
+    patient = simpledialog.askstring("Cancel Appointment", "Patient Name")
     patient_name = format_name(patient)
-    patient_code = simpledialog.askstring('Cancel Appointment', "Health Service Code:")
-    
+    patient_code = simpledialog.askstring("Cancel Appointment", "Health Service Code:")
+
     for patient in queue:
-        if patient['Name'].title() == patient_name and patient['Code'] == patient_code:
+        if patient["Name"].title() == patient_name and patient["Code"] == patient_code:
             queue.remove(patient)
-            messagebox.showinfo("Cancel Apointment", f"Appointment for {patient_name} ({patient_code}) has been successfully cancelled")
+            messagebox.showinfo(
+                "Cancel Apointment",
+                f"{patient_name}'s appointment [{patient_code}] has been successfully cancelled",
+            )
             refresh_listbox()
             return
-            
-    messagebox.showinfo("Cancel Appointment", f"No appointment found for {patient_name} ({patient_code}).")
-            
-            
+
+    messagebox.showinfo(
+        "Cancel Appointment",
+        f"No appointment found for {patient_name} [{patient_code}].",
+    )
+
+
 """
     the hospital serves the next patient,
     removing them from the appointment listing 
@@ -185,8 +191,10 @@ if __name__ == "__main__":
 
     add_button = Button(root, text="Add Patient", command=add_appointment)
     add_button.pack()
-    
-    cancel_button = tk.Button(root, text="Cancel Appointment", command=cancel_appointment)
+
+    cancel_button = tk.Button(
+        root, text="Cancel Appointment", command=cancel_appointment
+    )
     cancel_button.pack()
 
     remove_button = Button(root, text="Treat Next Patient", command=remove_next_patient)
