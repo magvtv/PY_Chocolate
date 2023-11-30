@@ -57,6 +57,9 @@ class PriorityQueue:
 
     def get_queue(self):
         return self.queue
+    
+    def get_length(self):
+        return len(self.queue)
 
     def is_empty(self):
         return len(self.queue) == 0

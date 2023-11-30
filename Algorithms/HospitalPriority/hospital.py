@@ -74,6 +74,13 @@ def empty_appointment():
         messagebox.showinfo("Empty Schedule?", "We still have patients to treat!")
 
 
+def total_patients():
+    total = queue.get_length()
+    messagebox.showinfo(
+        "Total patients", f"Number of patients awaiting treatment: {total}"
+    )
+
+
 def cancel_appointment():
     patient = simpledialog.askstring("Cancel Appointment", "Patient Name")
     patient_name = format_name(patient)
@@ -208,6 +215,9 @@ if __name__ == "__main__":
 
     empty_schedule = Button(root, text="Empty Schedule?", command=empty_appointment)
     empty_schedule.pack()
+
+    total_patients = Button(root, text="Total Patients", command=total_patients) # type: ignore
+    total_patients.pack()
 
     patients_listbox = Listbox(root, width=50, height=10, background="lightgoldenrod3")
     patients_listbox.pack()
