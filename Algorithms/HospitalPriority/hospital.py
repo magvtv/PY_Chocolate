@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk, simpledialog, messagebox, Listbox, END, Button, Text
-from turtle import width
 from priority_queue import (
     PriorityQueue,
     validate_time_format,
@@ -66,6 +65,13 @@ def add_appointment():
     code_entry.delete(0, tk.END)
     time_entry.delete(0, tk.END)
     refresh_listbox()
+
+
+def empty_appointment():
+    if queue.is_empty():
+        messagebox.showinfo("Empty Schedule?", "We have no patient to treat now!")
+    else:
+        messagebox.showinfo("Empty Schedule?", "We still have patients to treat!")
 
 
 def cancel_appointment():
@@ -199,6 +205,9 @@ if __name__ == "__main__":
 
     remove_button = Button(root, text="Treat Next Patient", command=remove_next_patient)
     remove_button.pack()
+
+    empty_schedule = Button(root, text="Empty Schedule?", command=empty_appointment)
+    empty_schedule.pack()
 
     patients_listbox = Listbox(root, width=50, height=10, background="lightgoldenrod3")
     patients_listbox.pack()
