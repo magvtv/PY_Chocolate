@@ -1,6 +1,6 @@
 
-/.vscode
-/RandomTexts
+.vscode/
+RandomTexts/
 __pycache__/
 CustomPython/
 KMC/TMDB/config.json
