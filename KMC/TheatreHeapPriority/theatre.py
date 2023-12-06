@@ -1,4 +1,4 @@
-from re import T
+import json
 
 
 class TheatrePriorityQueue:
@@ -85,6 +85,30 @@ film_queue = TheatrePriorityQueue()
 
 user1 = {
     "user_name": "PH Magutu",
-    "user_contact": {"user_email": "magutujr@gmail.com", "user_phone": "+25497649768"},
+    "user_priority": 2,
+}
+
+user2 = {
+    "user_name": "Jan Van Eyck",
     "user_priority": 1,
 }
+
+user3 = {
+    "user_name": "Donatello",
+    "user_priority": 3,
+}
+
+user4 = {
+    "user_name": "Jackson Pollock",
+    "user_priority": 2,
+}
+
+
+film_queue.enqueue(user1)
+film_queue.enqueue(user2)
+film_queue.enqueue(user3)
+film_queue.enqueue(user4)
+
+print("Initial Theatre Queue\n")
+x = json.dumps(film_queue.heap, indent=2)
+print(x)
