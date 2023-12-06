@@ -1,6 +1,3 @@
-- patient condition
-
-
 - cases after patient treatment
 1. can be released
 2. can be transfered
