@@ -72,6 +72,9 @@ class TheatrePriorityQueue:
             return None
 
     def update_priority(self, user_name, new_priority):
+        # new_user = input("Enter new user: ")
+        # new_priority = input(f"Enter {new_user}'s priority: ")
+
         for i, user in enumerate(self.heap):
             if user["user_name"] == user_name:
                 self.heap[i]["user_priority"] = new_priority
@@ -100,7 +103,7 @@ user3 = {
 
 user4 = {
     "user_name": "Jackson Pollock",
-    "user_priority": 2,
+    "user_priority": 4,
 }
 
 
@@ -109,6 +112,18 @@ film_queue.enqueue(user2)
 film_queue.enqueue(user3)
 film_queue.enqueue(user4)
 
-print("Initial Theatre Queue\n")
+# print("Initial Theatre Queue\n")
+# x = json.dumps(film_queue.heap, indent=2)
+# print(x)
+
+# film_queue.update_priority("Michaelangelo", 5)
+# print("Updated Theatre Queue\n")
+# x = json.dumps(film_queue.heap, indent=2)
+# print(x)
+
+
+removed_user = film_queue.dequeue()
+print(f"\nDequeued: {json.dumps(removed_user, indent=2)}")
+print("Updated Theatre Queue")
 x = json.dumps(film_queue.heap, indent=2)
 print(x)
