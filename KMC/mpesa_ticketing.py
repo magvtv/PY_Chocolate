@@ -75,7 +75,7 @@ if __name__ == "__main__":
         "Sharon Mukiri",
         "shamuks2001@gmail.com",
         2,
-        "Killers of the Flower Moon",
+        "Trolls Band Together",
         "1530h-1700h",
         ["Pringles XL", "Pringles XL", "500ml Fanta Passion", "500ml Fanta Passion"],
         "Eunice Mabea",
