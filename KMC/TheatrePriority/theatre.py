@@ -87,9 +87,4 @@ user1 = {
     "user_name": "PH Magutu",
     "user_contact": {"user_email": "magutujr@gmail.com", "user_phone": "+25497649768"},
     "user_priority": 1,
-    "ticket": {
-        "ticketID": "ZNFF4XH294",
-        "film_title": "The Hunger Games: The Ballad of Songbirds & Snakes",
-        "film_showtime"
-    },
 }

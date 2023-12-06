@@ -7,6 +7,10 @@ snack > brand > item (size, weight)
 
 """
 
+from textwrap import indent
+import json
+
+
 concession_stand = {
     # frozen chilled snacks
     "Frozen": {
@@ -53,7 +57,7 @@ concession_stand = {
     # gourmets (baked, pies, cakes, muffins, cookies)
     "Gourmet": {
         "Goldbelly": {
-            "Party Harder 12 Giants": 840,
+            "Party Harer 12 Giants": 840,
             "Beef Tacos": 1115,
             "Signature Italian Beef Sandwich": 1470,
             "Dozen H&H Bagels": 835,
@@ -101,3 +105,6 @@ concession_stand = {
         },
     },
 }
+
+# x = json.dumps(concession_stand, indent= 2)
+# print(x)
