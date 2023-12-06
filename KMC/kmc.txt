@@ -1,0 +1,25 @@
+- merge ticketing and theatre
+find a way of merging the mpesa ticketing script
+with theatre priority script
+
+- self entering data with mpesa ticketing
+allow one to enter their data into the terminal prompt
+save the data into the respective variables
+
+
+- work on snackbar script
+show available snacks for the user booking their ticketing
+allow number of choices in letter format as follows
+A. Frozen
+B. Sandwiches
+C. Gourmet
+D. Drinks
+E. KMC Cafe
+
+then when snack choice is made, enlist the snacks in that tab
+alongside their prices (could be in json format, better in text)
+read the data
+then have a template of showing the header and snacks below
+list the snacks with their prices (space the entities)
+after they type in the snack, ask for how many they need
+the quantity must be in number format
