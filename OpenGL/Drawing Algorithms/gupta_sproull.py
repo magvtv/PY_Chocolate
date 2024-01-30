@@ -4,38 +4,35 @@ from OpenGL.GL import *
 from OpenGL.GLUT import *
 
 
-def draw_pixel(x, y):
-    glColor(1, 1, 1)
+def draw_pixel(x, y, intensity):
+    glColor(intensity, intensity, intensity)
     glVertex2f(x, y)
 
 
-def draw_line_bresenham(x0, y0, x1, y1):
-    dx = abs(x1 - x0)
-    dy = abs(y1 - y0)
+def draw_line_gupta_sproull(x0, y0, x1, y1):
+    dx = x1 - x0
+    dy = y1 - y0
 
-    # Determine the sign of increments
-    sx = 1 if x0 < x1 else -1
-    sy = 1 if y0 < y1 else -1
+    # Determine the steps along the x and y axes
+    steps = max(abs(dx), abs(dy))
 
-    # Initial decision parameter
-    p = 2 * dy - dx
+    # Calculate increments
+    x_increment = dx / steps
+    y_increment = dy / steps
 
     # Initial coordinates
     x, y = x0, y0
 
     # Plot the first pixel
-    draw_pixel(x, y)
+    draw_pixel(x, y, 1)
 
     # Main loop
-    for i in range(dx):
-        x += sx
-
-        # Update decision parameter
-        p = p + 2 * dy if p < 0 else p - 2 * dx
-        y += sy
+    for i in range(int(steps)):
+        x += x_increment
+        y += y_increment
 
         # Plot the pixel
-        draw_pixel(x, y)
+        draw_pixel(x, y, 1)
 
     glEnd()
     glFlush()
@@ -45,19 +42,17 @@ def main():
     pygame.init()
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
-
-    # Use glOrtho to set up orthographic projection
     glOrtho(0, display[0], 0, display[1], -1, 1)
 
     glPointSize(5)
     glBegin(GL_POINTS)
 
     # Set starting and ending points
-    x0, y0 = -4, 7
-    x1, y1 = 2, 3
+    x0, y0 = 4, 3
+    x1, y1 = 12, -5
 
-    # Draw the line using Bresenham's Line-Drawing Algorithm
-    draw_line_bresenham(x0, y0, x1, y1)
+    # Draw the line using Gupta-Sproull algorithm
+    draw_line_gupta_sproull(x0, y0, x1, y1)
 
     while True:
         for event in pygame.event.get():
