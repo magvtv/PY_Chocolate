@@ -35,11 +35,6 @@ for i in range(20):
     arrival_delay = random.randint(2, 819)
     arrival_time = initial_service_start + timedelta(minutes=arrival_delay)
     
-    # service times: ensuring the service stop never exceeds closing hours
-    service_delay = random.randint(4, 44)
-    service_start = arrival_time + timedelta(minutes=service_delay)
-    service_stop = service_start + timedelta(minutes=random.randint(9, 79))
-    service_stop = min(service_stop, arrival_time.replace(hour=21, minute=00))
     
     # generate random choice of service to be done on client at the salon
     service_types = [
@@ -55,8 +50,15 @@ for i in range(20):
         'Hair Straightening',
         'Blow Dry',
     ]
-
     service_type = random.choice(service_types)
+
+    # service times: ensuring the service stop never exceeds closing hours
+    service_delay = random.randint(10, 34)
+    service_start = arrival_time + timedelta(minutes=service_delay)
+    service_stop = service_start + timedelta(minutes=random.randint(9, 74))
+    service_stop = min(service_stop, arrival_time.replace(hour=21, minute=00))
+    
+    service_duration = (service_stop - service_start).total_seconds() / 60
     
     # depart delay and times last client does not exceed closing hours
     depart_delay = random.randint(2, 6)
@@ -68,22 +70,23 @@ for i in range(20):
     
     client_data = {
         "name": client_name,
-        "arrival time": arrival_time.strftime('%H:%M'),
-        "service type": service_type,
-        "service start time": service_start.strftime('%H:%M'),
-        "service  stop time": service_stop.strftime('%H:%M'),
-        "depart time": depart_time.strftime('%H:%M'),
+        "arrival": f"{arrival_time.strftime('%H:%M')}h",
+        "service_type": service_type,
+        "service_start": f"{service_start.strftime('%H:%M')}h",
+        "service_stop": f"{service_stop.strftime('%H:%M')}h",
+        "service_duration": f"{int(service_duration)}mins",
+        "departure": f"{depart_time.strftime('%H:%M')}h",
     }
     
     data.append(client_data)
 
-data.sort(key=lambda x: datetime.strptime(x["arrival time"], "%H:%M"))    
-with open("Salon Queueing/clients.json", "w") as outfile:
+data.sort(key=lambda x: datetime.strptime(x["arrival"], "%H:%M"))    
+with open("Salon Queuing/Data/clients.json", "w") as outfile:
     json.dump(data, outfile, indent=3)
 
-print("Salon client data generated successfully, saved to salon_clients.json!")
+print("Salon client data generated successfully, saved to clients.json!")
 
-with open("Salon Queueing/clients.json", "r") as infile:
+with open("Salon Queuing/Data/clients.json", "r") as infile:
     data = json.load(infile)
 
 num_entries = len(data)
