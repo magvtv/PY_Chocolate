@@ -19,4 +19,4 @@ while current_time < close_time:
     current_time += timedelta(minutes=interval_duration)
     
 average_clients_in_queue = total_clients_in_queue / total_intervals
-print(f"Average number of clients in queue: {average_clients_in_queue}")
+print(f"Average number of clients in queue: {round(average_clients_in_queue, 4)}")

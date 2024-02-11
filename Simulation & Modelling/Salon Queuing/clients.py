@@ -70,12 +70,12 @@ for i in range(20):
     
     client_data = {
         "name": client_name,
-        "arrival": f"{arrival_time.strftime('%H:%M')}h",
+        "arrival": f"{arrival_time.strftime('%H:%M')}",
         "service_type": service_type,
-        "service_start": f"{service_start.strftime('%H:%M')}h",
-        "service_stop": f"{service_stop.strftime('%H:%M')}h",
-        "service_duration": f"{int(service_duration)}mins",
-        "departure": f"{depart_time.strftime('%H:%M')}h",
+        "service_start": f"{service_start.strftime('%H:%M')}",
+        "service_stop": f"{service_stop.strftime('%H:%M')}",
+        "service_duration": f"{int(service_duration)} mins",
+        "departure": f"{depart_time.strftime('%H:%M')}",
     }
     
     data.append(client_data)

@@ -1,182 +1,182 @@
 [
    {
-      "name": "Emily",
-      "arrival": "07:07",
-      "service_type": "Hair Straightening",
-      "service_start": "07:33",
-      "service_stop": "08:24",
-      "service_duration": "51mins",
-      "departure": "08:26"
-   },
-   {
-      "name": "Sarah",
-      "arrival": "07:39",
-      "service_type": "Hair Color",
-      "service_start": "07:49",
-      "service_stop": "08:46",
-      "service_duration": "57mins",
-      "departure": "08:50"
-   },
-   {
-      "name": "Katie",
-      "arrival": "08:51",
-      "service_type": "Scalp Treatment",
-      "service_start": "09:22",
-      "service_stop": "10:21",
-      "service_duration": "59mins",
-      "departure": "10:23"
-   },
-   {
-      "name": "Jenifer",
-      "arrival": "09:17",
-      "service_type": "Hair styling",
-      "service_start": "09:41",
-      "service_stop": "10:06",
-      "service_duration": "25mins",
-      "departure": "10:12"
-   },
-   {
-      "name": "Lauren",
-      "arrival": "10:55",
-      "service_type": "Hair Color",
-      "service_start": "11:14",
-      "service_stop": "12:13",
-      "service_duration": "59mins",
-      "departure": "12:19"
-   },
-   {
-      "name": "Amanda",
-      "arrival": "13:14",
-      "service_type": "Hair Color",
-      "service_start": "13:44",
-      "service_stop": "14:46",
-      "service_duration": "62mins",
-      "departure": "14:49"
-   },
-   {
       "name": "Daisy",
-      "arrival": "13:47",
+      "arrival": "07:36",
       "service_type": "Trimming",
-      "service_start": "14:20",
-      "service_stop": "14:30",
-      "service_duration": "10mins",
-      "departure": "14:34"
-   },
-   {
-      "name": "Tiffany",
-      "arrival": "14:07",
-      "service_type": "Olaplex",
-      "service_start": "14:23",
-      "service_stop": "15:07",
-      "service_duration": "44mins",
-      "departure": "15:11"
-   },
-   {
-      "name": "Stephanie",
-      "arrival": "14:24",
-      "service_type": "Olaplex",
-      "service_start": "14:45",
-      "service_stop": "15:00",
-      "service_duration": "15mins",
-      "departure": "15:04"
-   },
-   {
-      "name": "Melissa",
-      "arrival": "14:29",
-      "service_type": "Hair styling",
-      "service_start": "14:52",
-      "service_stop": "15:09",
-      "service_duration": "17mins",
-      "departure": "15:15"
-   },
-   {
-      "name": "Rachel",
-      "arrival": "14:51",
-      "service_type": "Hair Wash",
-      "service_start": "15:15",
-      "service_stop": "16:14",
-      "service_duration": "59mins",
-      "departure": "16:19"
-   },
-   {
-      "name": "Gabriella",
-      "arrival": "15:21",
-      "service_type": "Hair styling",
-      "service_start": "15:38",
-      "service_stop": "16:35",
-      "service_duration": "57mins",
-      "departure": "16:37"
-   },
-   {
-      "name": "Nicole",
-      "arrival": "16:30",
-      "service_type": "Blow Dry",
-      "service_start": "17:02",
-      "service_stop": "17:59",
-      "service_duration": "57mins",
-      "departure": "18:02"
+      "service_start": "07:59",
+      "service_stop": "08:30",
+      "service_duration": "31 mins",
+      "departure": "08:36"
    },
    {
       "name": "Brittny",
-      "arrival": "16:35",
-      "service_type": "Scalp Treatment",
-      "service_start": "16:57",
-      "service_stop": "17:26",
-      "service_duration": "29mins",
-      "departure": "17:31"
-   },
-   {
-      "name": "Heidi",
-      "arrival": "17:01",
-      "service_type": "Bleach & Tone",
-      "service_start": "17:16",
-      "service_stop": "18:19",
-      "service_duration": "63mins",
-      "departure": "18:21"
-   },
-   {
-      "name": "Elizabeth",
-      "arrival": "17:59",
-      "service_type": "Scalp Treatment",
-      "service_start": "18:21",
-      "service_stop": "19:20",
-      "service_duration": "59mins",
-      "departure": "19:26"
-   },
-   {
-      "name": "Jessica",
-      "arrival": "18:26",
-      "service_type": "Hair Wash",
-      "service_start": "18:43",
-      "service_stop": "19:51",
-      "service_duration": "68mins",
-      "departure": "19:53"
+      "arrival": "07:50",
+      "service_type": "Blow Dry",
+      "service_start": "08:07",
+      "service_stop": "09:06",
+      "service_duration": "59 mins",
+      "departure": "09:10"
    },
    {
       "name": "Courtney",
-      "arrival": "19:16",
-      "service_type": "Hair Wash",
-      "service_start": "19:32",
-      "service_stop": "20:08",
-      "service_duration": "36mins",
-      "departure": "20:12"
+      "arrival": "08:03",
+      "service_type": "Blow Dry",
+      "service_start": "08:17",
+      "service_stop": "09:29",
+      "service_duration": "72 mins",
+      "departure": "09:35"
+   },
+   {
+      "name": "Amanda",
+      "arrival": "08:13",
+      "service_type": "Blow Dry",
+      "service_start": "08:39",
+      "service_stop": "09:32",
+      "service_duration": "53 mins",
+      "departure": "09:38"
    },
    {
       "name": "Megan",
-      "arrival": "20:23",
-      "service_type": "Keratin Hair Treatment",
-      "service_start": "20:55",
-      "service_stop": "21:00",
-      "service_duration": "5mins",
-      "departure": "21:00"
+      "arrival": "08:35",
+      "service_type": "Scalp Treatment",
+      "service_start": "08:52",
+      "service_stop": "09:09",
+      "service_duration": "17 mins",
+      "departure": "09:11"
+   },
+   {
+      "name": "Gabriella",
+      "arrival": "08:48",
+      "service_type": "Hair Wash",
+      "service_start": "09:11",
+      "service_stop": "10:07",
+      "service_duration": "56 mins",
+      "departure": "10:10"
+   },
+   {
+      "name": "Nicole",
+      "arrival": "09:37",
+      "service_type": "Hair styling",
+      "service_start": "09:51",
+      "service_stop": "10:01",
+      "service_duration": "10 mins",
+      "departure": "10:06"
+   },
+   {
+      "name": "Lauren",
+      "arrival": "10:09",
+      "service_type": "Deep Conditioning Treatment",
+      "service_start": "10:34",
+      "service_stop": "11:36",
+      "service_duration": "62 mins",
+      "departure": "11:38"
+   },
+   {
+      "name": "Sarah",
+      "arrival": "10:14",
+      "service_type": "Olaplex",
+      "service_start": "10:39",
+      "service_stop": "11:27",
+      "service_duration": "48 mins",
+      "departure": "11:30"
+   },
+   {
+      "name": "Heidi",
+      "arrival": "13:21",
+      "service_type": "Bleach & Tone",
+      "service_start": "13:42",
+      "service_stop": "13:55",
+      "service_duration": "13 mins",
+      "departure": "13:58"
+   },
+   {
+      "name": "Melissa",
+      "arrival": "13:57",
+      "service_type": "Hair Straightening",
+      "service_start": "14:30",
+      "service_stop": "14:40",
+      "service_duration": "10 mins",
+      "departure": "14:43"
    },
    {
       "name": "Ashley",
-      "arrival": "20:37",
+      "arrival": "14:06",
+      "service_type": "Hair Wash",
+      "service_start": "14:38",
+      "service_stop": "15:23",
+      "service_duration": "45 mins",
+      "departure": "15:28"
+   },
+   {
+      "name": "Rachel",
+      "arrival": "14:10",
+      "service_type": "Hair styling",
+      "service_start": "14:20",
+      "service_stop": "14:40",
+      "service_duration": "20 mins",
+      "departure": "14:44"
+   },
+   {
+      "name": "Katie",
+      "arrival": "14:15",
+      "service_type": "Scalp Treatment",
+      "service_start": "14:37",
+      "service_stop": "15:38",
+      "service_duration": "61 mins",
+      "departure": "15:40"
+   },
+   {
+      "name": "Jessica",
+      "arrival": "14:56",
       "service_type": "Blow Dry",
-      "service_start": "21:00",
-      "service_stop": "21:00",
-      "service_duration": "0mins",
+      "service_start": "15:18",
+      "service_stop": "16:19",
+      "service_duration": "61 mins",
+      "departure": "16:25"
+   },
+   {
+      "name": "Stephanie",
+      "arrival": "16:04",
+      "service_type": "Keratin Hair Treatment",
+      "service_start": "16:36",
+      "service_stop": "17:30",
+      "service_duration": "54 mins",
+      "departure": "17:33"
+   },
+   {
+      "name": "Jenifer",
+      "arrival": "18:28",
+      "service_type": "Bleach & Tone",
+      "service_start": "18:48",
+      "service_stop": "19:57",
+      "service_duration": "69 mins",
+      "departure": "20:01"
+   },
+   {
+      "name": "Tiffany",
+      "arrival": "18:46",
+      "service_type": "Blow Dry",
+      "service_start": "19:15",
+      "service_stop": "20:05",
+      "service_duration": "50 mins",
+      "departure": "20:08"
+   },
+   {
+      "name": "Elizabeth",
+      "arrival": "19:00",
+      "service_type": "Hair Straightening",
+      "service_start": "19:27",
+      "service_stop": "19:57",
+      "service_duration": "30 mins",
+      "departure": "20:02"
+   },
+   {
+      "name": "Emily",
+      "arrival": "19:43",
+      "service_type": "Hair Wash",
+      "service_start": "20:16",
+      "service_stop": "20:58",
+      "service_duration": "42 mins",
       "departure": "21:00"
    }
 ]
