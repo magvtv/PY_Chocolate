@@ -1,0 +1,162 @@
+[
+   {
+      "name": "Stephanie",
+      "arrival time": "07:20",
+      "service type": "Hair styling",
+      "service start time": "07:26",
+      "service  stop time": "08:42",
+      "depart time": "08:44"
+   },
+   {
+      "name": "Heidi",
+      "arrival time": "08:17",
+      "service type": "Hair Straightening",
+      "service start time": "08:30",
+      "service  stop time": "09:19",
+      "depart time": "09:24"
+   },
+   {
+      "name": "Courtney",
+      "arrival time": "09:07",
+      "service type": "Hair Straightening",
+      "service start time": "09:16",
+      "service  stop time": "10:02",
+      "depart time": "10:07"
+   },
+   {
+      "name": "Sarah",
+      "arrival time": "09:57",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "10:15",
+      "service  stop time": "10:38",
+      "depart time": "10:40"
+   },
+   {
+      "name": "Ashley",
+      "arrival time": "11:02",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "11:42",
+      "service  stop time": "12:39",
+      "depart time": "12:43"
+   },
+   {
+      "name": "Jessica",
+      "arrival time": "11:21",
+      "service type": "Hair Color",
+      "service start time": "11:49",
+      "service  stop time": "12:29",
+      "depart time": "12:33"
+   },
+   {
+      "name": "Jenifer",
+      "arrival time": "11:59",
+      "service type": "Hair styling",
+      "service start time": "12:36",
+      "service  stop time": "13:44",
+      "depart time": "13:50"
+   },
+   {
+      "name": "Daisy",
+      "arrival time": "14:01",
+      "service type": "Hair Wash",
+      "service start time": "14:39",
+      "service  stop time": "15:02",
+      "depart time": "15:07"
+   },
+   {
+      "name": "Elizabeth",
+      "arrival time": "14:28",
+      "service type": "Bleach & Tone",
+      "service start time": "14:55",
+      "service  stop time": "15:31",
+      "depart time": "15:37"
+   },
+   {
+      "name": "Brittny",
+      "arrival time": "14:46",
+      "service type": "Olaplex",
+      "service start time": "15:01",
+      "service  stop time": "15:59",
+      "depart time": "16:01"
+   },
+   {
+      "name": "Katie",
+      "arrival time": "15:38",
+      "service type": "Scalp Treatment",
+      "service start time": "15:43",
+      "service  stop time": "16:40",
+      "depart time": "16:42"
+   },
+   {
+      "name": "Lauren",
+      "arrival time": "16:38",
+      "service type": "Blow Dry",
+      "service start time": "17:06",
+      "service  stop time": "17:24",
+      "depart time": "17:29"
+   },
+   {
+      "name": "Rachel",
+      "arrival time": "16:45",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "17:27",
+      "service  stop time": "18:16",
+      "depart time": "18:18"
+   },
+   {
+      "name": "Amanda",
+      "arrival time": "17:15",
+      "service type": "Hair Wash",
+      "service start time": "17:27",
+      "service  stop time": "18:38",
+      "depart time": "18:41"
+   },
+   {
+      "name": "Nicole",
+      "arrival time": "17:44",
+      "service type": "Hair styling",
+      "service start time": "18:15",
+      "service  stop time": "19:32",
+      "depart time": "19:38"
+   },
+   {
+      "name": "Emily",
+      "arrival time": "17:50",
+      "service type": "Hair Color",
+      "service start time": "18:24",
+      "service  stop time": "19:00",
+      "depart time": "19:04"
+   },
+   {
+      "name": "Melissa",
+      "arrival time": "17:56",
+      "service type": "Trimming",
+      "service start time": "18:04",
+      "service  stop time": "19:06",
+      "depart time": "19:10"
+   },
+   {
+      "name": "Megan",
+      "arrival time": "18:08",
+      "service type": "Blow Dry",
+      "service start time": "18:36",
+      "service  stop time": "19:13",
+      "depart time": "19:19"
+   },
+   {
+      "name": "Gabriella",
+      "arrival time": "18:15",
+      "service type": "Scalp Treatment",
+      "service start time": "18:24",
+      "service  stop time": "18:49",
+      "depart time": "18:54"
+   },
+   {
+      "name": "Tiffany",
+      "arrival time": "19:55",
+      "service type": "Olaplex",
+      "service start time": "20:30",
+      "service  stop time": "21:00",
+      "depart time": "21:00"
+   }
+]
