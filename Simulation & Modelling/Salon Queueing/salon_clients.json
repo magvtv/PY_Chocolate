@@ -1,0 +1,162 @@
+[
+   {
+      "name": "Rachel",
+      "arrival time": "16:55",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "17:09",
+      "service  stop time": "17:26",
+      "depart time": "17:26"
+   },
+   {
+      "name": "Courtney",
+      "arrival time": "16:41",
+      "service type": "Trimming",
+      "service start time": "17:08",
+      "service  stop time": "17:56",
+      "depart time": "17:58"
+   },
+   {
+      "name": "Daisy",
+      "arrival time": "16:45",
+      "service type": "Hair Color",
+      "service start time": "17:14",
+      "service  stop time": "17:45",
+      "depart time": "17:47"
+   },
+   {
+      "name": "Gabriella",
+      "arrival time": "16:47",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "16:54",
+      "service  stop time": "17:52",
+      "depart time": "17:55"
+   },
+   {
+      "name": "Lauren",
+      "arrival time": "16:58",
+      "service type": "Trimming",
+      "service start time": "17:23",
+      "service  stop time": "17:40",
+      "depart time": "17:41"
+   },
+   {
+      "name": "Sarah",
+      "arrival time": "16:54",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "17:09",
+      "service  stop time": "18:02",
+      "depart time": "18:02"
+   },
+   {
+      "name": "Lauren",
+      "arrival time": "16:40",
+      "service type": "Hair styling",
+      "service start time": "16:54",
+      "service  stop time": "17:51",
+      "depart time": "17:53"
+   },
+   {
+      "name": "Elizabeth",
+      "arrival time": "16:42",
+      "service type": "Hair Color",
+      "service start time": "17:01",
+      "service  stop time": "17:41",
+      "depart time": "17:45"
+   },
+   {
+      "name": "Jessica",
+      "arrival time": "16:51",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "17:00",
+      "service  stop time": "17:56",
+      "depart time": "17:59"
+   },
+   {
+      "name": "Megan",
+      "arrival time": "16:47",
+      "service type": "Hair Color",
+      "service start time": "17:15",
+      "service  stop time": "18:09",
+      "depart time": "18:11"
+   },
+   {
+      "name": "Amanda",
+      "arrival time": "16:42",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "16:46",
+      "service  stop time": "17:04",
+      "depart time": "17:06"
+   },
+   {
+      "name": "Jessica",
+      "arrival time": "16:40",
+      "service type": "Trimming",
+      "service start time": "17:01",
+      "service  stop time": "17:41",
+      "depart time": "17:45"
+   },
+   {
+      "name": "Tiffany",
+      "arrival time": "16:46",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "17:07",
+      "service  stop time": "17:53",
+      "depart time": "17:55"
+   },
+   {
+      "name": "Gabriella",
+      "arrival time": "16:52",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "17:12",
+      "service  stop time": "17:55",
+      "depart time": "17:59"
+   },
+   {
+      "name": "Brittny",
+      "arrival time": "16:53",
+      "service type": "Deep Conditioning Treatment",
+      "service start time": "17:06",
+      "service  stop time": "17:41",
+      "depart time": "17:46"
+   },
+   {
+      "name": "Courtney",
+      "arrival time": "16:53",
+      "service type": "Trimming",
+      "service start time": "17:08",
+      "service  stop time": "17:23",
+      "depart time": "17:26"
+   },
+   {
+      "name": "Lauren",
+      "arrival time": "16:40",
+      "service type": "Keratin Hair Treatment",
+      "service start time": "17:09",
+      "service  stop time": "17:57",
+      "depart time": "18:00"
+   },
+   {
+      "name": "Melissa",
+      "arrival time": "16:51",
+      "service type": "Hair Color",
+      "service start time": "17:11",
+      "service  stop time": "17:31",
+      "depart time": "17:31"
+   },
+   {
+      "name": "Emily",
+      "arrival time": "16:41",
+      "service type": "Trimming",
+      "service start time": "16:58",
+      "service  stop time": "17:30",
+      "depart time": "17:30"
+   },
+   {
+      "name": "Elizabeth",
+      "arrival time": "16:53",
+      "service type": "Hair styling",
+      "service start time": "17:17",
+      "service  stop time": "18:13",
+      "depart time": "18:18"
+   }
+]
