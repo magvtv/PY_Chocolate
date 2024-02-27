@@ -1,9 +1,9 @@
 import random
 
 # Number of rolls
-num_rolls = 1000
+total_dice_rolls = 1000
 
-# initialize counters for each dice
+# initialize counters for each face of the dice
 face_counts = [0] * 6
 
 # simulating the rolling of the dice
@@ -12,7 +12,7 @@ face_counts = [0] * 6
     set to 0.
     Each element corresponds to a face of the dice (from 1 to 6)
 """
-for _ in range(num_rolls):
+for _ in range(total_dice_rolls):
     # Generate a random number between 0 and 1
     random_number = random.uniform(0, 1)
 
@@ -39,7 +39,7 @@ for _ in range(num_rolls):
 print("Outcome \tFrequency \tPercentage")
 print("-------------------------------------------")
 for face, count in enumerate(face_counts, 1):
-    percentage = (count / num_rolls) * 100
+    percentage = (count / total_dice_rolls) * 100
     print(f"Face {face} \t\t{count} \t\t{percentage:.2f}%")
 print("-------------------------------------------")
-print(f"Total:\t\t{num_rolls}\t\t{int(num_rolls * 0.1)}%")
+print(f"Total:\t\t{total_dice_rolls}\t\t{int(total_dice_rolls * 0.1)}%")
