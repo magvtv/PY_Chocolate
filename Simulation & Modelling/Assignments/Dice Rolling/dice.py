@@ -1,4 +1,11 @@
 import random
+import os
+
+# function to clear the terminal screen on linux os
+def clear_screen():
+    _ = os.system('clear')
+
+
 
 # Number of rolls
 total_dice_rolls = 1000
@@ -36,10 +43,13 @@ for _ in range(total_dice_rolls):
     After all rolls are simulated, the face_counts list will contain 
     the frequency of each face rolled during the simulation
 """
+
+
+clear_screen()
 print("Outcome \tFrequency \tPercentage")
 print("-------------------------------------------")
 for face, count in enumerate(face_counts, 1):
     percentage = (count / total_dice_rolls) * 100
-    print(f"Face {face} \t\t{count} \t\t{percentage:.2f}%")
+    print(f"Face {face}\t\t{count}\t\t{percentage:.2f}%")
 print("-------------------------------------------")
 print(f"Total:\t\t{total_dice_rolls}\t\t{int(total_dice_rolls * 0.1)}%")
