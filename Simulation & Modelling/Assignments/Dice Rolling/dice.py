@@ -22,4 +22,6 @@ print("Outcome \tFrequency \tPercentage")
 print("-------------------------------------------")
 for face, count in enumerate(face_counts, 1):
     percentage = (count / num_rolls) * 100
-    print(f"{face} \t\t{count} \t\t{percentage:.2f}%")
+    print(f"Face {face} \t\t{count} \t\t{percentage:.2f}%")
+print("-------------------------------------------")
+print(f"Total:\t\t{num_rolls}\t\t{int(num_rolls * 0.1)}%")
