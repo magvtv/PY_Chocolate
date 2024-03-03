@@ -1,7 +1,7 @@
 from external_definition import time_arrival, time_next_event, mean_interarrival, expon, Q_LIMIT, mean_service
 from timing import sim_time
 def arrive():
-    global num_in_q, server_status, num_customers_delayed, total_of_delays
+    global num_in_q, server_status, num_customers_delayed, total_delays
     delay = 0.0
     # Schedule next arrival
     time_next_event[1] = sim_time + expon(mean_interarrival)
@@ -21,7 +21,7 @@ def arrive():
         time_arrival[num_in_q] = sim_time
     else:
         # Server is idle, arriving customer has zero delay
-        total_of_delays += delay
+        total_delays += delay
         
         # Increment number of customers delayed and make server busy
         num_customers_delayed += 1

@@ -31,7 +31,6 @@ for _ in range(total_dice_rolls):
         and adding 1 ensures the result is between 1 and 6 as it scales it to the possible 
         range of faces on a six-faced die (a valid face)
     """
-    # face = int(random_number * 6) + 1
     face = random_number * 6 + 1
 
     # Update the counter for the corresponding face
