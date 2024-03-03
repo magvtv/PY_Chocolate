@@ -1,78 +1,75 @@
-import os
-from math import pi
+import math
+import random
+from external_definition import initialize, timing, update_time_avg_stats, next_event_type
 
 def main():
-    # Open input and output files
-    infile_path = "mm1.in"
-    outfile_path = "mm1.out"
-    infile = open(infile_path, "r")
-    outfile = open(outfile_path, "w")
+    # open the input and output files
+    infile = open("inputfile.txt", "r")
+    outfile = open("outputfile.txt", "w")
     
-    # Specify the number of events for the timing function
-    num_events = int(infile.readline().strip())
+    # specifying the number of events for the timing functions
+    num_events = 2
     
-    # Read input parameters
-    mean_interarrival, mean_service, num_delays_required = map(float, infile.readline().split())
-    
-    # Write report header and input parameters
-    outfile.write("Single-server queueing system\n\n")
-    outfile.write(f"Mean interarrival time: {mean_interarrival:.3f} minutes\n\n")
-    outfile.write(f"Mean service time:      {mean_service:.3f} minutes\n\n")
-    outfile.write(f"Number of customers:   {num_delays_required}\n\n")
-    
-    # Initialize the simulation
-    initialize()
-    
-    # Run the simulation while more delays are still needed
-    while num_custs_delayed < num_delays_required:
-        
-        # Determine the next event
-        timing()
-            
-        # Update time-average statistical accumulators
-        update_time_avg_stats()
-            
-        # Invoke the appropriate event function
-        match infile.read()[0]:
-            case '1':
-                arrive()
-                break
-            case '2':
-                depart()
-                break
-            default:
-                raise ValueError("Unexpected event.")
+        # Read input parameters.
+    mean_interarrival, mean_service, num_delays_required = read_input(infile)
 
-    # Invoke the report generator and end the simulation
+    # Write report heading and input parameters.
+    write_report_heading(outfile)
+    write_input_parameters(outfile, mean_interarrival, mean_service, num_delays_required)
+
+    # Initialize the simulation.
+    initialize()
+
+    # Run the simulation while more delays are still needed.
+    while num_custs_delayed < num_delays_required:
+        # Determine the next event.
+        timing()
+
+        # Update time-average statistical accumulators.
+        update_time_avg_stats()
+
+        # Invoke the appropriate event function.
+        switch(next_event_type)
+
+    # Invoke the report generator and end the simulation.
     report()
+
+    # Close input and output files.
     infile.close()
     outfile.close()
 
-def arrival_rate(lambda_, tau):
-    return lambda_ / tau
+    return 0
 
-def mean_wait_time(mu, sigma):
-    return mu**2 + (sigma**2)/(2*mu**2)
+def read_input(infile):
+    # Read input parameters.
+    mean_interarrival, mean_service, num_delays_required = infile.readline().split()
+    return float(mean_interarrival), float(mean_service), int(num_delays_required)
 
-def mean_response_time(mu, sigma):
-    return mean_wait_time(mu, sigma) + 1/mu
+def write_report_heading(outfile):
+    outfile.write("Single-server queueing system\n\n")
 
-def initialize():
-    global num_custs_delayed
-    num_custs_delayed = 0
+def write_input_parameters(outfile, mean_interarrival, mean_service, num_delays_required):
+    outfile.write("Mean interarrival time%11.3f minutes\n\n" % mean_interarrival)
+    outfile.write("Mean service time%16.3f minutes\n\n" % mean_service)
+    outfile.write("Number of customers%14d\n\n" % num_delays_required)
 
-def timing():
-    pass
+def switch(next_event_type):
+    if next_event_type == 1:
+        arrive()
+    elif next_event_type == 2:
+        depart()
+    else:
+        print("Invalid event type")
 
 def arrive():
-    global num_custs_delayed
+    global num_custs_delayed, num_in_q
     num_custs_delayed += 1
+    num_in_q += 1
 
 def depart():
-    pass
-
-def update_time_avg_stats():
-    pass
+    global num_custs_delayed, num_in_q
+    num_custs_delayed -= 1
+    num_in_q -= 1
 
 def report():
     pass

@@ -1,5 +1,8 @@
+from external_definition import time_next_event, time_arrival, expon, mean_service
+from timing import sim_time
+
 def depart():
-    global num_in_q, server_status, num_custs_delayed, total_of_delays
+    global num_in_q, server_status, num_customers_delayed, total_of_delays
     delay = 0.0
     
     # Check if the queue is empty
@@ -16,7 +19,7 @@ def depart():
         total_of_delays += delay
         
         # Increment number of customers delayed and schedule departure
-        num_custs_delayed += 1
+        num_customers_delayed += 1
         time_next_event[2] = sim_time + expon(mean_service)
         
         # Move each customer in queue up one place
