@@ -1,4 +1,5 @@
 from collections import deque
+from template import format_output
 
 # defining initial state, goal state - need to add goal state = (0,2)
 initial_state = (0,0)
@@ -10,12 +11,12 @@ max_capacity_x = 13
 max_capacity_y = 7
 
 actions = [
-    (f"Fill the {max_capacity_x} jar", lambda state: (max_capacity_x, state[1])),
-    (f"Fill the {max_capacity_y} jar", lambda state: (state[0], max_capacity_y)),
-    (f"Pour {max_capacity_x} jar to {max_capacity_y} jar", lambda state: (max(0, state[0] - (max_capacity_y - state[1])), min(state[0] + state[1], max_capacity_y))),
-    (f"Pour {max_capacity_y} jar to {max_capacity_x} jar", lambda state: (min(0, state[0] + state[1], max_capacity_x), max(0, state[1] - (max_capacity_y - state[0])))),
-    (f"Empty {max_capacity_x} jar", lambda state: (0, state[1])),
-    (f"Empty {max_capacity_y} jar", lambda state: (state[0], 0))
+    (f"Fill X", lambda state: (max_capacity_x, state[1])),
+    (f"Fill Y", lambda state: (state[0], max_capacity_y)),
+    (f"Pour X to Y", lambda state: (max(0, state[0] - (max_capacity_y - state[1])), min(state[0] + state[1], max_capacity_y))),
+    (f"Pour Y to X", lambda state: (min(0, state[0] + state[1], max_capacity_x), max(0, state[1] - (max_capacity_y - state[0])))),
+    (f"Empty X", lambda state: (0, state[1])),
+    (f"Empty Y", lambda state: (state[0], 0))
 ]
 
 
@@ -44,6 +45,8 @@ solution = breadth_first_search(initial_state, goal_state, actions, transition_m
 
 if solution:
     print("Solution Found!")
-    print(solution)
+    print("Steps to take\n")
+    for i, step in enumerate(format_output(solution)):
+        print(f"{i + 1}. {step}")
 else:
     print("No solution found for this one!")
