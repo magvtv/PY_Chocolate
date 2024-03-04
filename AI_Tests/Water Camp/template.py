@@ -9,11 +9,3 @@ def format_step(action, remaining):
         return f"Empty the {'x' if 'X' in action else 'y'} jar"
     else:
         return "Unknown action"
-    
-def format_output(solution):
-    output = []
-    state = (0,0)
-    for action in solution:
-        state = transition_model(state, actions[action])
-        output.append(format_step(action, state[1] if 'X' in action else state[0]))
-    return output
