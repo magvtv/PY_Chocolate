@@ -97,13 +97,13 @@ def report():
 
     global total_of_delays, num_custs_delayed, simulation_time, area_num_in_queue, area_sever_status
 
-    output_file.write("\nAverage delay in queue  {0} minutes\n\n".format(
+    output_file.write("\nAverage Queue Delay =  {0} minutes\n\n".format(
         total_of_delays/num_custs_delayed))
-    output_file.write("Average no in queue  {0}\n\n".format(
+    output_file.write("Average Number of Customers in Queue =  {0}\n\n".format(
         area_num_in_queue/simulation_time))
-    output_file.write("Server Utilization  {0}\n\n".format(
+    output_file.write("Server Utilization  = {0}\n\n".format(
         area_sever_status/simulation_time))
-    output_file.write("Time Simulation ended  {0}".format(simulation_time))
+    output_file.write("End Time of the Simulation =  {0}".format(simulation_time))
 
 
 def expon(mean):
@@ -123,11 +123,10 @@ if __name__ == '__main__':
     mean_service = input_parameters[1]
     num_delays_required = input_parameters[2]
 
-    output_file.write("Single-server queueing system\n\n")
-    output_file.write(
-        "Mean interarrival time {0} \n\n".format(mean_interarrival))
-    output_file.write("Mean service time {0} \n\n".format(mean_service))
-    output_file.write("No of Cutomers {0} \n".format(num_delays_required))
+    output_file.write("SINGLE SERVER QUEUING SYSTEM\n\n")
+    output_file.write("Mean Interarrival Time = {0} \n\n".format(mean_interarrival))
+    output_file.write("Mean Service Time = {0} \n\n".format(mean_service))
+    output_file.write("Total Customers = {0} \n".format(num_delays_required))
 
     initialization()
 

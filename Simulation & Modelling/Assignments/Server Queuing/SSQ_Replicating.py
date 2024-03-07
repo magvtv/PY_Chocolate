@@ -109,15 +109,6 @@ def report():
     srvr_utilize.append(area_sever_status/simulation_time)
     sim_ended.append(simulation_time)
 
-
-    # output_file.write("\nAverage delay in queue  {0} minutes\n\n".format(
-    #     total_of_delays/num_custs_delayed))
-    # output_file.write("Average no in queue  {0}\n\n".format(
-    #     area_num_in_queue/simulation_time))
-    # output_file.write("Server Utilization  {0}\n\n".format(
-    #     area_sever_status/simulation_time))
-    # output_file.write("Time Simulation ended  {0}".format(simulation_time))
-
 def report_print():
     global avg_d_q ,avg_n_q, srvr_utilize, sim_ended
 
