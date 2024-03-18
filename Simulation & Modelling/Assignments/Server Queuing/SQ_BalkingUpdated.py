@@ -143,19 +143,17 @@ def main():
     mean_service = input_parameters[1]
     num_delays_required = input_parameters[2]
 
-    output_file.write("Single-server queueing system\n\n")
+    output_file.write("SINGLE SERVER QUEUING SYSTEM\n\n")
     output_file.write(
-        "Mean interarrival time {0} \n\n".format(mean_interarrival))
-    output_file.write("Mean service time {0} \n\n".format(mean_service))
-    output_file.write("No of Cutomers {0} \n".format(num_delays_required))
+        "Mean interarrival time = {0} \n\n".format(mean_interarrival))
+    output_file.write("Mean service time = {0} \n\n".format(mean_service))
+    output_file.write("Number of Customers = {0} \n".format(num_delays_required))
 
     initialization()
 
     while (num_custs_delayed < int(num_delays_required)):
-
         timing()
         update_time_avg_stats()
-
         if (next_event_type == 1):
             arrive()
         elif (next_event_type == 2):
