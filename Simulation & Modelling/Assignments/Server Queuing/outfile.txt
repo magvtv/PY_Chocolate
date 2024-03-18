@@ -4,12 +4,12 @@ Mean Interarrival Time = 1.0
 
 Mean Service Time = 0.5 
 
-Total Customers = 750 
+Total Customers = 500 
 
-Average Queue Delay =  0.2920546052421087 minutes
+Average Queue Delay =  0.2908057466739236 minutes
 
-Average Number of Customers in Queue =  0.3890400808222837
+Average Number of Customers in Queue =  0.3915712731490264
 
-Server Utilization  = 0.49557677834538705
+Server Utilization  = 0.5315808802016463
 
-End Time of the Simulation =  563.0292731499842
+End Time of the Simulation =  371.33181953729166
