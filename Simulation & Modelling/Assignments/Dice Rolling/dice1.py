@@ -1,56 +1,43 @@
 import random
-import os
-import math
-
-# function to clear the terminal screen on linux os
-def clear_screen():
-    _ = os.system('clear')
+from tabulate import tabulate
 
 
+# Define function to roll a dice using floating-point numbers
+def roll_dice():
+  return random.random()
 
-# Number of rolls
-total_dice_rolls = 1000
 
-# initialize counters for each face of the dice
-face_counts = [0] * 6
+# Define function to get face based on random number
+def get_face(random_number):
+  if random_number < 1 / 6:
+    return 1
+  elif 1 / 6 < random_number < 2 / 6:
+    return 2
+  elif 2 / 6 < random_number < 3 / 6:
+    return 3
+  elif 3 / 6 < random_number < 4 / 6:
+    return 4
+  elif 4 / 6 < random_number < 5 / 6:
+    return 5
+  else:
+    return 6
 
-# simulating the rolling of the dice with for loop
-"""
-    for loop for updating the face counts, that have 6 elements, each
-    set to 0.
-    Each element corresponds to a face of the dice (from 1 to 6)
-"""
-for _ in range(total_dice_rolls):
-    # Generate a random number between 0 and 1
-    random_number = random.uniform(0, 1)
 
-    # Determine the face based on the random number
-    """
-        the random number determines dice face to roll. 
-        multiplying the random number by 6 (the number of faces on a dice)
-        and adding 1 ensures the result is between 1 and 6 as it scales it to the possible 
-        range of faces on a six-faced die (a valid face)
-    """
-    face = random_number * 6 + 1
+# Simulate rolling a dice 1000 times using floating-point numbers
+dice_rolls = [get_face(roll_dice()) for _ in range(1000)]
 
-    # Update the counter for the corresponding face
-    """
-        the counter for the corresponding face rolled is then updated by incrementing 
-        the value at the index corresponding to that face in the face_counts list
-    """
-    face_index = (math.floor(face) - 1)
-    face_counts[face_index] += 1
+# Count the occurrences of each face
+face_counts = [dice_rolls.count(i) for i in range(1, 7)]
 
-# Display the table of outcomes
-"""
-    After all rolls are simulated, the face_counts list will contain 
-    the frequency of each face rolled during the simulation
-"""
-clear_screen()
-print("Outcome \tFrequency \tPercentage")
-print("-------------------------------------------")
-for face, count in enumerate(face_counts, 1):
-    percentage = (count / total_dice_rolls) * 100
-    print(f"Face {face}\t\t{count}\t\t{percentage:.2f}%")
-print("-------------------------------------------")
-print(f"Total:\t\t{total_dice_rolls}\t\t{100}%")
+# Calculate the percentage occurrence of each face
+percentage_occurrences = [count / 1000 * 100 for count in face_counts]
+
+# Create a table
+table_headers = ['Face', 'Frequency', 'Percentage']
+table_data = list(
+    zip(range(1, 7), face_counts, percentage_occurrences, strict=True))
+
+table = tabulate(table_data, headers=table_headers, tablefmt='grid')
+
+# Print the table
+print(table)

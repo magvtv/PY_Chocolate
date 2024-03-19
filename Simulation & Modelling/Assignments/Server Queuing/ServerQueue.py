@@ -15,11 +15,10 @@ time_next_event = [0] * 3
 # function to initialize the simulation - setting the server_status
 # calculate the time for the next arrival event
 # set the departure time to infinity since it is close to "1.0 * 10**30"
-
 def initialization():
     global simulation_time, server_status, num_in_queue, time_last_event, num_custs_delayed, total_of_delays, area_server_status, time_next_event
     server_status = IDLE
-    time_next_event[1] = simulation_time + expon(mean_interarrival)
+    time_next_event[1] = simulation_time + exponential(mean_interarrival)
     time_next_event[2] = 1.0 * 10**30
 
 
@@ -58,7 +57,7 @@ def update_time_avg_stats():
 def arrive():
     global server_status, num_in_queue, total_of_delays, num_custs_delayed, simulation_time, mean_interarrival, time_next_event, QUEUE_LIMIT, time_arrival, mean_service
     delay = 0.0
-    time_next_event[1] = simulation_time + expon(mean_interarrival)
+    time_next_event[1] = simulation_time + exponential(mean_interarrival)
 
     if (server_status == BUSY):
         num_in_queue += 1
@@ -73,7 +72,7 @@ def arrive():
         num_custs_delayed += 1
         server_status = BUSY
 
-        time_next_event[2] = simulation_time + expon(mean_service)
+        time_next_event[2] = simulation_time + exponential(mean_service)
 
 
 # function to handle departure event
@@ -90,7 +89,7 @@ def depart():
         delay = simulation_time - time_arrival[1]
         total_of_delays += delay
         num_custs_delayed += 1
-        time_next_event[2] = simulation_time + expon(mean_service)
+        time_next_event[2] = simulation_time + exponential(mean_service)
 
         for i in range(num_in_queue):
             time_arrival[i+1] = time_arrival[i + 2]
@@ -105,7 +104,7 @@ def report():
 
 # exponential distribution function
 # generates a random number for the exponential distribution calculation
-def expon(mean):
+def exponential(mean):
     rand = random.uniform(0.1, 1.0)
     return -(float(mean)) * math.log(rand)
 
