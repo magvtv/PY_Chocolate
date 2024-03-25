@@ -1,35 +1,30 @@
 import tkinter as tk
 
-class DrawConvertible:
-    def __init__(self, canvas):
-        self.canvas = canvas
+def draw_porsche_911_side_view(canvas):
+    # Main body curve without sunroof for a sleek look
+    canvas.create_polygon(40, 160, 90, 110, 250, 110, 310, 160, smooth=True, fill="red", outline="black")  
 
-    def draw_front_view(self):
-        # Simplified front view
-        self.canvas.create_rectangle(50, 50, 150, 100, fill="blue")  # Main body
-        self.canvas.create_rectangle(70, 70, 130, 90, fill="lightgray")  # Windshield
+    # Lower part of the body
+    canvas.create_rectangle(40, 160, 310, 200, fill="darkred", outline="black")  
 
-    def draw_side_view(self):
-        # More detailed side view
-        self.canvas.create_rectangle(20, 60, 180, 100, fill="blue", outline="blue")  # Main body
-        self.canvas.create_polygon(20, 60, 40, 40, 160, 40, 180, 60, fill="lightblue")  # Roof and windshield
-        self.canvas.create_oval(40, 90, 70, 120, fill="black")  # Front wheel
-        self.canvas.create_oval(130, 90, 160, 120, fill="black")  # Rear wheel
+    # Wheels - larger and more pronounced for a sporty look
+    canvas.create_oval(80, 170, 130, 220, fill="black", outline="gray")  # Front wheel
+    canvas.create_oval(220, 170, 270, 220, fill="black", outline="gray")  # Rear wheel
 
-    def draw_rear_view(self):
-        # Simplified rear view
-        self.canvas.create_rectangle(50, 50, 150, 100, fill="blue")  # Main body
-        self.canvas.create_rectangle(70, 70, 130, 90, fill="lightgray")  # Rear window
+    # Enhancements for a more detailed look
+    # Headlights
+    canvas.create_oval(260, 130, 280, 150, fill="yellow", outline="black")
+    # Rearview mirror
+    canvas.create_polygon(150, 130, 155, 135, 150, 140, fill="darkred", outline="black")
+    # Door handle
+    canvas.create_rectangle(180, 160, 190, 165, fill="black", outline="black")
 
 # Tkinter setup
 root = tk.Tk()
-root.title("Convertible Drawing")
-canvas = tk.Canvas(root, width=200, height=150)
+root.title("Porsche 911 Turbo S Side View")
+canvas = tk.Canvas(root, width=350, height=250)
 canvas.pack()
 
-convertible = DrawConvertible(canvas)
-# Here you can call any of the three functions to draw the respective view.
-# For example:
-convertible.draw_side_view()
+draw_porsche_911_side_view(canvas)
 
 root.mainloop()
