@@ -32,9 +32,11 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
     glLoadIdentity()
     glPushMatrix()
+    
     glTranslatef(center[0], center[1], 0.0)
     glRotatef(angle, 0.0, 0.0, 1.0)
     glTranslatef(radius, 0.0, 0.0)
+    
     draw_black_square(square_size)
     glPopMatrix()
     glFlush()

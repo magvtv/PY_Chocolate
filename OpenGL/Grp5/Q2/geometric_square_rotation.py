@@ -48,7 +48,7 @@ center = (0, 0)
 radius = 30
 speed = 3.0     #adjust the speed for one revolution per quarter path
 angle = 0.0
-sqaure_size = 10
+square_size = 10
 
 glutDisplayFunc(display)
 glutTimerFunc(0, animate, 0)
