@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 
-def celebrity_networth(celebrity_name):
+def celebrity_networth(celebrity_name, profession):
     # construct the link with the celeb's name
-    url = f"https://www.celebritynetworth.com/richest-celebrities/{celebrity_name}-net-worth/"
+    url = f"https://www.celebritynetworth.com/richest-celebrities/richest-{profession}/{celebrity_name}-net-worth/"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
     }
@@ -31,7 +31,8 @@ def celebrity_networth(celebrity_name):
 
 def main():
     celebrity_name = input("Enter celebrity name: ").lower().replace(" ", "-")
-    networth, profession = celebrity_networth(celebrity_name)
+    profession = input("Enter the celebrity profession: ").lower().replace(" ", "-")
+    networth, profession = celebrity_networth(celebrity_name, profession)
 
     # check if the function returned valid data on the celeb
     if networth and profession:
