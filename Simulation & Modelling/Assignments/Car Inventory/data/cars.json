@@ -1,0 +1,42 @@
+[
+    {
+        "id": "KS3",
+        "category": "SUV",
+        "brand": "Kia",
+        "model": "Sportage",
+        "price": "USD 31,000",
+        "mileage": 5000
+    },
+    {
+        "id": "9TS",
+        "category": "Sedan",
+        "brand": "Tesla",
+        "model": "Model S",
+        "price": "USD 90,550",
+        "mileage": 8500
+    },
+    {
+        "id": "M6A",
+        "category": "Lorry",
+        "brand": "Mercedes Benz",
+        "model": "Actros Chassis",
+        "price": "USD 17,320",
+        "mileage": 4100
+    }, 
+    {
+        "id": "7PT",
+        "category": "Convertible",
+        "brand": "Porsche",
+        "model": "911 Turbo S",
+        "price": "USD 221,150",
+        "mileage": 2940
+    },
+    {
+        "id": "JW2",
+        "category": "4X4",
+        "brand": "Jeep",
+        "model": "Wrangler",
+        "price": "USD 60,480",
+        "mileage": 3280
+    }
+]
