@@ -40,6 +40,7 @@ pygame.init()
 display = (900, 900)
 pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
+glutInit()
 
 glClearColor(1.0, 1.0, 1.0, 1.0)
 gluOrtho2D(-50, 50, -50, 50)

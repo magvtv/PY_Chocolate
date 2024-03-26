@@ -51,6 +51,8 @@ pygame.init()
 display = (600, 600)
 pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
+glutInit()
+
 init()
 
 center = (0, 0)
