@@ -1,0 +1,6 @@
+a model of this kind for gaming consoles. 
+the system acts as a distributor, getting supplies from Nairobi and selling to consumers 
+(big business eg. eSports and small ones like gaming hubs)
+understand 
+- program organisation and logic
+- skeleton of C program
