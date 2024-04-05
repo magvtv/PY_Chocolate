@@ -24,10 +24,10 @@ class TauswortheGenerator:
         return new_bit
     
 
-r = 9
-q = 13
-seed_sequence = "1000101010011"
-initial_i = 7
+r = 4
+q = 17
+seed_sequence = "10101110010001101"
+initial_i = 17
 
 generator = TauswortheGenerator(r, q, seed_sequence, initial_i)
 
