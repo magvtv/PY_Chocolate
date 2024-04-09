@@ -475,7 +475,7 @@ root = tk.Tk()
 root.geometry("280x100")  # Adjusting the window size
 root.title("Buttons")
 
-car_button = tk.Button(root, text="See Car", command=draw_sedan, width=10, height=2)  
+car_button = tk.Button(root, text="See Sedan", command=draw_sedan, width=10, height=2)  
 car_button.pack(side=tk.LEFT,padx=6.5, pady=10)
 
 suv_button = tk.Button(root, text="See SUV", command=draw_suv, width=10, height=2)  
