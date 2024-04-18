@@ -63,16 +63,17 @@ def minmax(grid, depth, is_maximizing):
                 if grid[i][j] == ' ':
                     grid[i][j] = 'X'
                     evaluate = minmax(grid, (depth - 1), False)
-                    grid[i][j] = ' '
+                    grid[i][j] = ' '        #revert the move
                     max_evaluation = max(max_evaluation, evaluate)
         return max_evaluation
     else:
-        min_evaluation = float('-inf')
+        min_evaluation = float('inf')
         for i in range(3):
             for j in range(3):
                 if grid[i][j] == ' ':
+                    grid[i][j] = 'O'
                     evaluate = minmax(grid, (depth - 1), True)
-                    grid[i][j] = ' '
+                    grid[i][j] = ' '        #revert the move
                     min_evaluation = min(min_evaluation, evaluate)
         return min_evaluation
     
@@ -84,7 +85,7 @@ def find_best_move(grid):
             if grid[i][j] == ' ':
                 grid[i][j] = 'X'
                 evaluate = minmax(grid, 3, False)
-                grid[i][j] = ' '
+                grid[i][j] = ' '           #revert the move
                 if evaluate > best_evaluation:
                     best_evaluation = evaluate
                     best_move = (i, j)
