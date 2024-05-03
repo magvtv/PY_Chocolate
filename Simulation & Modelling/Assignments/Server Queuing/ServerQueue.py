@@ -110,9 +110,11 @@ def exponential(mean):
 
 
 
+
+
 if __name__ == '__main__':
     # open the input and output files within the same directory
-    input_file = open("infile.txt", "r")
+    input_file = open('infile.txt', "r")
     output_file = open("outfile.txt", "w")
 
     # read input parameter in the infile 
