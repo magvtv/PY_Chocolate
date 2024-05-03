@@ -1,0 +1,15 @@
+\documentclass{article}
+\title{"Finding Polynomial Roots: Secant Method"}
+\author{James Njenga, Magutu Nyarango, Charles Balila}
+\date{Sunday 26th March 2023}
+
+
+\begin{document}
+
+\maketitle
+
+The Secant Method is a numerical algorithm used to find the roots of a given polynomial equation. It is an iterative procedure that involves generating a sequence of approximations of the root, which converge towards the actual root. The algorithm requires two initial guesses, and from these values, a sequence of approximations is generated using a fixed formula. The formula involves the use of the function values at the two initial guesses, and these function values are used to estimate the slope of the curve at each point. The slope is then used to extrapolate the next approximation of the root, and the process continues until a desired level of accuracy is achieved. The Secant Method is a relatively simple and efficient method for finding roots of polynomials, and it has many applications in various fields, including physics, engineering, and finance.
+
+To implement the Secant Method in a program, we can use a loop to generate a sequence of approximations. We can define a function that takes as input the polynomial equation, the two initial guesses, and the desired level of accuracy. Inside the function, we can use a while loop to generate the sequence of approximations, and we can use the fixed formula to compute each new approximation. We can also include checks to ensure that the algorithm does not generate any division-by-zero errors, and that it terminates when the desired level of accuracy is achieved. Finally, we can test the function with various inputs to ensure that it works correctly and efficiently.
+
+\end{document}
