@@ -43,11 +43,11 @@ def get_steps_to_target(target_amount, container1, container2):
 
 
 # Initialize containers
-container1 = Container(13)
-container2 = Container(7)
+container1 = Container(11)
+container2 = Container(5)
 
 # Target amount of water
-target_amount = 2
+target_amount = 3
 
 # Get steps to obtain the target amount of water
 steps = get_steps_to_target(target_amount, container1, container2)
