@@ -370,8 +370,6 @@ with open("/home/pharoh/Desktop/LEARN/PY/SCICOMP/Data/films.csv", "r") as film:
 
 
 
-
-
 # # QUESTION 3
 # def find_rarest_age(student_data):
 #     # Create a dictionary to store the counts of each age
@@ -626,17 +624,17 @@ with open("/home/pharoh/Desktop/LEARN/PY/SCICOMP/Data/films.csv", "r") as film:
     #     car.status = 'ready to drive'
     #     print(f"{car} is now ready to drive")
 
-class A:
-    def __new__(self):
-        print("A's__new__() invoked")
-    def __init__(self):
-        print("A's__init__() invoked")
+# class A:
+#     def __new__(self):
+#         print("A's__new__() invoked")
+#     def __init__(self):
+#         print("A's__init__() invoked")
 
-class B:
-    def __new__(self):
-        print("B's__new__() invoked")
-    def __init__(self):
-        print("B's__init__() invoked")
-B()
-A()
+# class B:
+#     def __new__(self):
+#         print("B's__new__() invoked")
+#     def __init__(self):
+#         print("B's__init__() invoked")
+# B()
+# A()
 # print(b)
