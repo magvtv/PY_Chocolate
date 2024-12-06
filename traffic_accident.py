@@ -178,6 +178,59 @@ def plot_model_performance(results, title):
 #     return joblib.load(filename)
 
 
+def analyze_dangerous_counties(df, top_n=5):
+    county_deaths = df.groupby('County')['Total people confirmed dead'].agg([
+        'mean', 'count']).reset_index()
+    county_deaths = county_deaths.sort_values('mean', ascending=False)
+
+    print("\nMost Dangerous Counties:")
+    print(county_deaths.head(top_n))
+
+    print("\nLeast Dangerous Counties:")
+    print(county_deaths.tail(top_n))
+
+    plt.figure(figsize=(12, 6))
+    sns.barplot(x='County', y='mean',
+                data=county_deaths.head(top_n), palette='Reds_r')
+    plt.title(f'Top {top_n} Most Dangerous Counties')
+    plt.xlabel('County')
+    plt.ylabel('Average Deaths per Accident')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+
+def analyze_accidents_by_time(df):
+    # count accidents by hour
+    accidents_by_hour = df['Hour'].value_counts().sort_index()
+
+    # Plotting
+    plt.figure(figsize=(12, 6))
+    sns.barplot(x=accidents_by_hour.index,
+                y=accidents_by_hour.values, palette='Blues_r')
+    plt.title('Distribution of Accidents by Time of Day')
+    plt.xlabel('Hour of Day')
+    plt.ylabel('Number of Accidents')
+    plt.xticks(range(0, 24))
+    plt.tight_layout()
+    plt.show()
+
+    # Print time categories
+    time_categories = df['Time_Category'].value_counts()
+    print("\nAccidents by Time Category:")
+    print(time_categories)
+
+    # Plotting time categories
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=time_categories.index,
+                y=time_categories.values, palette='Greens_r')
+    plt.title('Distribution of Accidents by Time Category')
+    plt.xlabel('Time Category')
+    plt.ylabel('Number of Accidents')
+    plt.tight_layout()
+    plt.show()
+
+
 # main
 def main():
     # load and preprocess data
@@ -202,6 +255,10 @@ def main():
     results_time = train_evaluate_models(X, y_time, preprocessor)
     plot_model_performance(
         results_time, "Model Performance - Time Category Prediction")
+
+    # Additional analyses
+    analyze_dangerous_counties(df)
+    analyze_accidents_by_time(df)
 
     # # split data
     # X_train, X_test, y_train, y_test = split_data(X, y)
