@@ -53,9 +53,9 @@ Date,Accident Spot,Area,County,Road/ Highway,Brief Accident Details/Cause,Victim
 12/2/2022,Suswa,Suswa,Narok,Narok Mai Mahiu road,Head on Collision,"Driver, Passengers",1,12:16,Sunny
 7/4/2023,Mau Summit,Kuresoi North,Nakuru,Nakuru Kericho Highway,Bus lost control and landed in a ditch,None,0,22:19,Windy
 4/26/2022,Kirinyaga,Kirinyaga,Kirinyaga,Rukenya Kimunye Road,Bus overturned,None,0,18:00,Foggy
-18/12/2021,Kambiti,Kambiti,Murang'a,Sagana Kenol Road,Matatu collided with an on coming lorry,Passengers,3,17:32,Sunny
+12/18/2021,Kambiti,Kambiti,Murang'a,Sagana Kenol Road,Matatu collided with an on coming lorry,Passengers,3,17:32,Sunny
 12/12/2021,Roka,Roka,Kilifi,Kilifi Malindi Road,Matatus collided head on,Passengers,7,19:30,Rainy
-12/3/2021,Tuthamba,Kirinyaga,Kirinyaga,Sagana Kagio Road,Matatu collided head on with a saloon car,None,0,21:00,Calm
+3/12/2021,Tuthamba,Kirinyaga,Kirinyaga,Sagana Kagio Road,Matatu collided head on with a saloon car,None,0,21:00,Calm
 6/24/2023,Migaa,Mau Hills,Nakuru,Nakuru Eldoret highway,Matatu driver lost control and hit a lorry,Passenger,3,18:35,Windy
 5/15/2023,Sachangwan,Sachangwan,Nakuru,Nakuru Eldoret highway,Matatu hit a bump and veered off the road,Passengers,5,02:00,Cloudy
 4/21/2023,Mau Summit,Kuresoi North,Nakuru,Nakuru Eldoret highway, Tuktuk hit a kindergarten child,Pedestrian,1,18:30,Cloudy
@@ -65,7 +65,7 @@ Date,Accident Spot,Area,County,Road/ Highway,Brief Accident Details/Cause,Victim
 3/31/2023,Burguret Shopping centre,Burguret,Muranga,Naromoru Nanyuki Road,Bus overturned,None,0,01:58,Windy
 4/18/2023,Maragua,Maragua,Muranga,Kenol Muranga road,Matatu collided with a lorry,Passengers,2,16:37,Sunny
 8/8/2023,Migori town,Migori Town,Migori,Migori Isibania Road,Truck failed brakes and ran into ither vehicles,Pedestrians,8,07:30,Rainy
-3/13/2022,Ndarugo,Ndarugo,Kiambu,"Thika Road ",Truck lost control and overturned,None,0,10.00,Foggy
+3/13/2022,Ndarugo,Ndarugo,Kiambu,"Thika Road ",Truck lost control and overturned,None,0,10:00,Foggy
 2/4/2023,Kakwamunyen,Kakuma,Turkana,Lodwar Kakuma Road,Driver swerved to avoid on hitting a camel on the road and lost control,Passengers,14,22:00,Foggy
 1/29/2023,Mamboleo,Mamboleo,Kisumu,Kakamega Kisumu Road,Bus veered off the road and landed in a ditch,None,0,02:04,Windy
 1/26/2023,Kikopey,Kikopey,Nakuru,"Nakuru - Nairobi highway ",A matatu rammed into a lorry,Passengers,7,08:01,Windy
@@ -76,7 +76,7 @@ Date,Accident Spot,Area,County,Road/ Highway,Brief Accident Details/Cause,Victim
 6/8/2023,Kanyonyoo Market,Kanyonyoo,Kitui,Thika Kitui Highway,Bus rammed into a saloon car,Passengers,4,10:04,Windy
 6/5/2022,Kanyonyoo juction,Kanyonyoo,Kitui,Thika Kitui Highway,Matatu lost control and rolled over,"Driver, Passengers",10,23:03,Calm
 6/3/2022,Losengeli,Sabatia,Vihiga,Nairobi Kakamega road,Bus lost control and rolled over,Passenger,1,03:45,Foggy
-31/5/2022,Isinya,Isinya,Kajiado,Namanga Road,Car rammed into a trailer,Passengers,1,23:00,Calm
+5/31/2022,Isinya,Isinya,Kajiado,Namanga Road,Car rammed into a trailer,Passengers,1,23:00,Calm
 5/30/2022,Kinugi,Kinugi,Nakuru,Naivasha Nairobi Highway,Truck driver collided with an oncoming matatu,Passenger,1,06:36,Cloudy
 2/28/2022,Kinugi,Kinugi,Nakuru,"Nakuru - Nairobi highway ",Car rammed into a lorry,Passengers,4,22:35,Cloudy
 8/8/2023,Sobea,Sobea,Nakuru,Nakuru Eldoret Highway,matatu collided with a truck,Passengers,2,04:30,Foggy
